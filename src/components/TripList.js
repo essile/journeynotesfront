@@ -1,18 +1,25 @@
-import React, { Component } from 'react';
-//import NewTrip from "./NewTrip";
-import PitStop from "./PitStop";
-
+import React, { Component } from "react";
+import Trip from "./Trip";
 
 class TripList extends Component {
-    render() {
-        return (
-            <div>
-                <h1>This is the list of old trips</h1>
-                <h2>Add new trip</h2>
-                <PitStop/>
-            </div>
-        );
-    }
+  render() {
+    var allTrips = this.props.list.map(function(trip) {
+      console.log("viesti");
+      return (
+        <Trip
+          headline={trip.headline}
+          description={trip.description}
+          key={trip.id}
+        />
+      );
+    });
+
+    return (
+      <div>
+        {allTrips}
+      </div>
+    );
+  }
 }
 
 export default TripList;

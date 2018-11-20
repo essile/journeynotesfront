@@ -1,14 +1,9 @@
-import React, { Component } from 'react';
-import PitStop from "./PitStop";
+import React, { Component } from "react";
 
 class Trip extends Component {
-    render() {
-        return (
-            <div>
-                <PitStop/>
-            </div>
-        );
-    }
+  render() {
+    return <div>{this.props.headline}</div>;
+  }
 }
 
 export default Trip;

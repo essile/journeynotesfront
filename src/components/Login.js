@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class PitStop extends Component {
+class Login extends Component {
     render() {
         return (
             <div>
-              PitStop  
+                Login
             </div>
         );
     }
 }
 
-export default PitStop;
+export default Login;
