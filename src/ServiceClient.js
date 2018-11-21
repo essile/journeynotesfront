@@ -4,7 +4,10 @@ var localhost= "https://localhost:44316";
 export function GetAllTrips(callback) {
     var personID = 70;
     console.log("Kävin serviceclientissa")
-    Axios.get(localhost + "/api/Trips?personID=" + personID).then(response => {
+    const {getAccessToken} = this.props.auth;
+    const headers = { 'Authorization': `Bearer ${getAccessToken()}`};
+    console.log(headers);
+    Axios.get(localhost + "/api/Trips?personID=" + personID, {headers}).then(response => {
     callback(response.data);
   });
 }
