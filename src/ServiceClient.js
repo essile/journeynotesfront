@@ -1,8 +1,11 @@
 import Axios from "axios";
+var localhost= "https://localhost:44316";
 
-export function GetTrips(callback) {
-  Axios.get("/api/Trips").then(response => {
-    callback(response);
+export function GetAllTrips(callback) {
+    var personID = 70;
+    console.log("Kävin serviceclientissa")
+    Axios.get(localhost + "/api/Trips?personID=" + personID).then(response => {
+    callback(response.data);
   });
 }
 

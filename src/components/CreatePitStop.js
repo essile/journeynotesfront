@@ -33,7 +33,7 @@ class CreatePitStop extends Component {
           value={this.state.description}
         />
         <br />
-        <input type="button" value="Create" onClick={this.newPitstop} />
+        <input type="button" value="Add" onClick={this.newPitstop} />
       </div>
     );
   }
