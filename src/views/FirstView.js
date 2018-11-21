@@ -6,7 +6,7 @@ class FirstView extends Component {
     return (
       <div>
         <TripList list={data} />
-        <a href="http://localhost:3001/CreateTripView">Create new trip</a>
+        <a href="http://localhost:3003/CreateTripView">Create new trip</a>
       </div>
     );
   }
