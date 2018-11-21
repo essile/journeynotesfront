@@ -50,7 +50,7 @@ class Trip extends Component {
           
           <Nav pills>
             <NavItem>
-              <NavLink href="http://localhost:3003/CreatePitstopView" active onClick={this.newTrip}>
+              <NavLink href="http://localhost:3000/CreatePitstopView" active onClick={this.newTrip}>
                 Create
               </NavLink>
             </NavItem>

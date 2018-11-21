@@ -22,24 +22,11 @@ class FirstView extends Component {
     return (
       <div>
         <TripList trips={this.state.trips} />
-        <a href="http://localhost:3003/CreateTripView">Create new trip</a>
+        <a href="http://localhost:3000/CreateTripView">Create new trip</a>
       </div>
     );
   }
 }
 
-var data = [
-  { id: 1, headline: "New york", description: "Tää on ihan triviaali homma" },
-  {
-    id: 2,
-    headline: "Los Angeles",
-    description: "Tuu, Samu, kirjoittaa ja minä sanelen"
-  },
-  {
-    id: 3,
-    headline: "San Francisco",
-    description: "Nyt se Visual Studio vähän aikaa rouskuttaa"
-  }
-];
 
 export default FirstView;

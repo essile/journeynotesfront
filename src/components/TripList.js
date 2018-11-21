@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Trip from "./Trip";
 
 class TripList extends Component {
 
