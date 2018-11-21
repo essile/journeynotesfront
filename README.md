@@ -2,3 +2,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 npm install react-router-dom --save
 npm install axios --save
 npm install --save reactstrap react react-dom
+npm install bootstrap --save
