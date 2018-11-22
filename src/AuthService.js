@@ -50,4 +50,10 @@ export default class AuthService {
     }
     return accessToken;
   }
+  logout() {
+    sessionStorage.removeItem('access_token');
+    sessionStorage.removeItem('id_token');
+    sessionStorage.removeItem('expires_at');
+	window.location.href = '/';
+  }
 }
