@@ -51,6 +51,13 @@ class Trip extends Component {
             onChange={this.descriptionSet}
           />
           </FormGroup>
+          <FormGroup>
+          <FormControl
+            type="file"
+            label="File"
+            help="Example block-level help text here."
+          />
+          </FormGroup>
           
           <Nav bsStyle="pills">
             <NavItem href="/CreatePitstopView" active onClick={this.newTrip}>
