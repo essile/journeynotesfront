@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import { Nav, NavItem, NavLink } from "reactstrap";
+import { Nav, NavItem } from "react-bootstrap";
 
 class Login extends Component {
+ 
   render() {
     return (
       <div>
-        <Nav pills>
-          <NavItem>
-            <NavLink href="http://localhost:3003/FirstView" active>Login</NavLink>
+        <Nav bsStyle="pills">
+          <NavItem
+            href="/FirstView" active>Login
           </NavItem>
         </Nav>
       </div>
