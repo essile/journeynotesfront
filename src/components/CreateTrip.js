@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Nav, NavItem, NavLink } from "reactstrap";
+import { Nav, NavItem } from "react-bootstrap";
+import { FormGroup, ControlLabel, FormControl, Jumbotron } from "react-bootstrap";
 
 
 class Trip extends Component {
@@ -11,7 +12,6 @@ class Trip extends Component {
       msg: "Kävin täällä"
     };
   }
-  //state = {headline: "", description: "", msg:"Kävin täällä"};
 
   newTrip = event => {
     this.setState({ headline: "", description: "" });
@@ -31,28 +31,30 @@ class Trip extends Component {
   render() {
     return (
       <div>
-        <h3>Create a new trip</h3>
+      <Jumbotron className="jumbo">
+        <h2>Create a new trip</h2>
+      </Jumbotron>
         <form>
-          Headline
-          <input
+        <FormGroup>
+          <ControlLabel>Give a headline:</ControlLabel>
+          <FormControl
             type="text"
-            onChange={this.headlineSet}
             value={this.state.headline}
+            placeholder="I guess we are not in Kansas anymore"
+            onChange={this.headlineSet}
           />
-          <br />
-          Description
-          <input
+          <ControlLabel>Give a description:</ControlLabel>
+          <FormControl
             type="text"
-            onChange={this.descriptionSet}
             value={this.state.description}
+            placeholder="Went to ride a hurricane"
+            onChange={this.descriptionSet}
           />
-          <br />
+          </FormGroup>
           
-          <Nav pills>
-            <NavItem>
-              <NavLink href="http://localhost:3000/CreatePitstopView" active onClick={this.newTrip}>
+          <Nav bsStyle="pills">
+            <NavItem href="http://localhost:3000/CreatePitstopView" active onClick={this.newTrip}>
                 Create
-              </NavLink>
             </NavItem>
           </Nav>
         </form>

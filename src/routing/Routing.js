@@ -4,18 +4,21 @@ import FirstView from "../views/FirstView";
 import CreateTripView from "../views/CreateTripView";
 import LoginView from "../views/LoginView";
 import CreatePitstopView from "../views/CreatePitstopView";
+import { Col } from "react-bootstrap";
 
 class Routing extends Component {
   render() {
     return (
       <Router>
         <div>
+        <Col xs={12} sm={8} md={6}>
           <Switch>
             <Route exact path="/" component={LoginView}/>
             <Route path="/CreateTripView" component={CreateTripView} />
             <Route path="/FirstView" component={FirstView} />
             <Route path="/CreatePitstopView" component={CreatePitstopView} />
           </Switch>
+          </Col>
         </div>
       </Router>
     );

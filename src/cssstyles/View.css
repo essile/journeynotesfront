@@ -1,0 +1,13 @@
+.title{
+    font-family: 'Bevan';
+    font-size: 50em;
+    margin: auto;
+}
+.jumbo{
+    background-color: white;
+}
+.nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
