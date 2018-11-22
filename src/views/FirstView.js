@@ -23,19 +23,14 @@ class FirstView extends Component {
 
     return (
       <div>
-<<<<<<< Updated upstream
-        <TripList trips={this.state.trips} />
-        <a href="http://localhost:3000/CreateTripView">Create new trip</a>
-=======
         <Jumbotron className="jumbo">
           <TripList trips={this.state.trips} />
         </Jumbotron>
         <Nav bsStyle="pills" className="Nav">
-          <NavItem href="http://localhost:3000/CreateTripView" active onClick={this.newTrip}>
+          <NavItem href="/CreateTripView" active onClick={this.newTrip}>
             Create new Trip
           </NavItem>
         </Nav>
->>>>>>> Stashed changes
       </div>
     );
   }

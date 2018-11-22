@@ -42,7 +42,7 @@ class CreatePitStop extends Component {
           </FormGroup>
           
           <Nav bsStyle="pills">
-            <NavItem href="http://localhost:3000/CreatePitstopView" active onClick={this.newTrip}>
+            <NavItem href="/CreatePitstopView" active onClick={this.newTrip}>
                 Add
             </NavItem>
           </Nav>
