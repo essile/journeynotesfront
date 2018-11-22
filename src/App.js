@@ -16,7 +16,7 @@ class App extends Component {
     let resultComponent = <FirstView auth={this.authService}/>;
 
     if (!this.authService.isAuthenticated()) {
-      console.log("morjes");
+       console.log("morjes 7");
       this.authService.login();
       resultComponent = <div><p>Redirecting to the authentication service...</p></div>
     }
@@ -25,6 +25,7 @@ class App extends Component {
   }
 
   startSession(history) {
+    console.log("morjes startSession ");
     this.authService.handleAuthentication(history);
     return <div><p>Starting session...</p></div>;
   }

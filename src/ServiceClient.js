@@ -1,13 +1,15 @@
 import Axios from "axios";
 var localhost= "https://localhost:44316";
 
-export function GetAllTrips(callback) {
+export function GetAllTrips(accessToken, callback) {
     var personID = 70;
     console.log("Kävin serviceclientissa")
-    const {getAccessToken} = this.props.auth;
-    const headers = { 'Authorization': `Bearer ${getAccessToken()}`};
+    console.log(accessToken);
+    // const {getAccessToken} = this.props.auth;
+    const headers = { 'Authorization': `Bearer ${accessToken}`};
     console.log(headers);
     Axios.get(localhost + "/api/Trips?personID=" + personID, {headers}).then(response => {
+      
     callback(response.data);
   });
 }
@@ -20,7 +22,7 @@ export function AddTrip(trip, callback) {
   console.log(addedTrip);
   Axios.post("/api/Trips", trip).then(response => {
     console.dir(response);
-    //callback(response);
+    callback(response);
   });
 }
 
