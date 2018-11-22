@@ -2,13 +2,13 @@ import Axios from "axios";
 var localhost= "https://localhost:44316";
 
 export function GetAllTrips(accessToken, callback) {
-    var personID = 70;
+    var userID = 70;
     console.log("Kävin serviceclientissa")
     console.log(accessToken);
     // const {getAccessToken} = this.props.auth;
     const headers = { 'Authorization': `Bearer ${accessToken}`};
     console.log(headers);
-    Axios.get(localhost + "/api/Trips?personID=" + personID, {headers}).then(response => {
+    Axios.get(localhost + "/api/Trips?userID=" + userID, {headers}).then(response => {
       
     callback(response.data);
   });
