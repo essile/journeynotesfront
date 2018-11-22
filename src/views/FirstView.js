@@ -4,6 +4,7 @@ import { GetAllTrips } from "../ServiceClient";
 import { Jumbotron, Nav, NavItem } from "react-bootstrap";
 import "../cssstyles/View.css";
 
+
 class FirstView extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +12,9 @@ class FirstView extends Component {
   }
 
   componentDidMount = () => {
-    GetAllTrips(response => {
+    const accessToken = this.props.auth.getAccessToken();
+    console.log(accessToken);
+    GetAllTrips(accessToken, response => {
       var trips = response;
       this.setState({ trips: trips });
       console.log(this.state.trips);
