@@ -104,6 +104,17 @@ class Trip extends Component {
               onChange={this.endDate}
             />
           </FormGroup>
+<<<<<<< HEAD
+=======
+          <FormGroup>
+          <FormControl
+            type="file"
+            label="File"
+            help="Example block-level help text here."
+          />
+          </FormGroup>
+          
+>>>>>>> master
           <Nav bsStyle="pills">
             {/* <NavItem href="/CreatePitstopView" active onClick={this.newTrip}> */}
             <NavItem active onClick={this.newTrip}>
