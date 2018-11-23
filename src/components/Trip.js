@@ -6,11 +6,12 @@ class Trip extends Component {
     super(props);
     this.state = { tripPitstops: [] };
   }
-
-  componentDidMount = () => {
-    const accessToken = sessionStorage.getItem('access_token');
-    console.log(accessToken);
-    GetTripPitstops(accessToken, response => {
+  componentDidMount = (props) => {
+    // const accessToken = sessionStorage.getItem('access_token');
+    // console.log(accessToken);
+    console.log(this.props);
+    var tripId = this.state.tripPitstops.tripId;
+    GetTripPitstops(tripId, response => {
       var tripPitstops = response;
       this.setState({ tripPitstops: tripPitstops });
     });
@@ -18,7 +19,6 @@ class Trip extends Component {
 
   render() {
     console.log(this.state.tripPitstops)
-    console.log("noni");
     var allTripPitstops = [].concat(this.state.tripPitstops).map(tripPitstop => (
       <li key={tripPitstop.tripId}>
 

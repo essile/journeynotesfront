@@ -35,6 +35,7 @@ export function AddTrip(trip, callback) {
 
 export function GetTripPitstops(accessToken, callback) {
   var tripId = 1;
+  // var accessToken = sessionStorage.getItem('access_token');
   console.log("Kävin serviceclientissa")
   console.log(accessToken);
   // const {getAccessToken} = this.props.auth;

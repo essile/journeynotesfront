@@ -1,17 +1,16 @@
 import React, { Component } from "react";
-import {
-  Link
-} from "react-router-dom";
 import {Nav, NavItem, Jumbotron} from 'react-bootstrap';
+import Trip from './Trip';
 
 class TripList extends Component {
-
   
-
+  // tripId = this.state.match.params.tripId;
+  
   render() {
     var styles={
       dropshadow: "4px"
     }
+    console.log("moikka");
     console.log(this.props.trips);
     var allTrips = this.props.trips.map(trip => (
       <Jumbotron style={styles} key={trip.tripId}>
@@ -20,25 +19,27 @@ class TripList extends Component {
       {/* <h5>{trip.headline}</h5>
       <p>{trip.description}</p>
       </Link> */}
+      
       <Nav bsStyle="pills">
          <NavItem
-           href="/TripView" active>
+           href={`/TripView/${trip.tripId}`} active>
          </NavItem>
            <h5>{trip.headline}</h5>
-          <p>{trip.description}</p>
+          <p>{trip.description}</p> 
        </Nav>
       </Jumbotron>
       
     ));
 
-      return (
-        <div>     
-          {allTrips}         
+      return ( 
+        <div>      
+          {allTrips}   
+          <Trip tripId = {this.props.trips.tripId} />   
         </div>
         
       );
     }
-
+  
     
   }
 
