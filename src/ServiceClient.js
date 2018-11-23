@@ -2,16 +2,6 @@ import Axios from "axios";
 var localhost = "https://localhost:44316";
 
 export function GetAllTrips(accessToken, callback) {
-<<<<<<< HEAD
-  var personID = 70;
-  console.log("Kävin serviceclientissa")
-  console.log(accessToken);
-  // const {getAccessToken} = this.props.auth;
-  const headers = { 'Authorization': `Bearer ${accessToken}` };
-  console.log(headers);
-  Axios.get(localhost + "/api/Trips?personID=" + personID, { headers }).then(response => {
-
-=======
     var userID = 70;
     console.log("Kävin serviceclientissa")
     console.log(accessToken);
@@ -20,7 +10,6 @@ export function GetAllTrips(accessToken, callback) {
     console.log(headers);
     Axios.get(localhost + "/api/Trips?userID=" + userID, {headers}).then(response => {
       
->>>>>>> master
     callback(response.data);
   });
 }
