@@ -1,5 +1,5 @@
 import Axios from "axios";
-var localhost= "https://localhost:44316";
+var localhost = "https://localhost:44316";
 
 export function GetAllTrips(accessToken, callback) {
     var userID = 70;
@@ -15,13 +15,20 @@ export function GetAllTrips(accessToken, callback) {
 }
 
 export function AddTrip(trip, callback) {
-  var addedTrip = {
-    headline: trip.headline,
-    description: trip.description
-  };
-  console.log(addedTrip);
-  Axios.post("/api/Trips", trip).then(response => {
-    console.dir(response);
+
+  const data = new FormData();
+
+  data.append('action', 'POST');
+  data.append('headline', trip.headline);
+  data.append('description', trip.description);
+  data.append('startDate', trip.startDate);
+  data.append('endDate', trip.endDate);
+  data.append('picture', new Blob([trip.photo], { type: 'image/jpeg' }));
+
+  console.dir(trip);
+  console.dir( data );
+  Axios.post(localhost + "/api/Trips", data ).then(response => {
+    //console.dir(response);
     callback(response);
   });
 }
