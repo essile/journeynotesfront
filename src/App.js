@@ -21,26 +21,36 @@ class App extends Component {
       this.authService.login();
       resultComponent = <div><p>Redirecting to the authentication service...</p></div>
     }
-
     return resultComponent;
   }
 
   startSession(history) {
     console.log("morjes startSession ");
+    console.log("morjes 7");
     this.authService.handleAuthentication(history);
     return <div><p>Starting session...</p></div>;
   }
 
+  createLogoutButton() {
+    let button = null;
+    
+    if (this.authService.isAuthenticated()) {
+      console.log("logout button")
+      button = <button onClick={()=>this.authService.logout()}>Logout</button>;
+    }  
+    return button;
+    }
+
+
   render() {
+    let logoutButton =  this.createLogoutButton();
     return (
       <div className="App">
-      <Grid>
-      
-      
+      <Grid>      
         <Routing />
       </Grid>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+       
           <h1 className="App-title">Welcome to Journey Notes</h1>
         </header>
 
@@ -49,6 +59,7 @@ class App extends Component {
           <Route path="/startSession" render={({history}) => this.startSession(history)}/>
         </Switch>
         {/* <Routing /> */}
+        {logoutButton}
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>

@@ -12,7 +12,8 @@ class FirstView extends Component {
   }
 
   componentDidMount = () => {
-    const accessToken = this.props.auth.getAccessToken();
+    const accessToken = sessionStorage.getItem('access_token');
+    console.log("Sessiosta saatu: " + accessToken);
     console.log(accessToken);
     GetAllTrips(accessToken, response => {
       var trips = response;

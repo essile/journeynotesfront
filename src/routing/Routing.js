@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FirstView from "../views/FirstView";
 import CreateTripView from "../views/CreateTripView";
 import CreatePitstopView from "../views/CreatePitstopView";
+import TripView from "../views/TripView";
 import { Col } from "react-bootstrap";
 
 class Routing extends Component {
@@ -16,6 +17,8 @@ class Routing extends Component {
             <Route path="/CreateTripView" component={CreateTripView} />
             {/* <Route path="/FirstView" component={FirstView} /> */}
             <Route path="/CreatePitstopView" component={CreatePitstopView} />
+            <Route path="/TripView" component={TripView} />
+
           </Switch>
           </Col>
         </div>
