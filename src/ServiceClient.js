@@ -26,4 +26,17 @@ export function AddTrip(trip, callback) {
   });
 }
 
+export function GetTripPitstops(accessToken, callback) {
+  var tripId = 1;
+  console.log("Kävin serviceclientissa")
+  console.log(accessToken);
+  // const {getAccessToken} = this.props.auth;
+  const headers = { 'Authorization': `Bearer ${accessToken}`};
+  console.log(headers);
+  Axios.get(localhost + "/api/Trips/" + tripId, {headers}).then(response => {
+    
+  callback(response.data);
+});
+}
+
 export default function() {}
