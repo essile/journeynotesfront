@@ -3,7 +3,15 @@ import { FormGroup, ControlLabel, FormControl, Jumbotron, Nav, NavItem } from "r
 
 
 class CreatePitStop extends Component {
-  state = { location: "", description: "" };
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      note: "",
+      photo: "",
+      startDate: ""
+    };
+  }
   newPitstop = event => {
     console.log(this.state);
     //this.props.CreateNewPitStop(this.state);
