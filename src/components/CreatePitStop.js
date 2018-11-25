@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FormGroup, ControlLabel, FormControl, Jumbotron, Nav, NavItem } from "react-bootstrap";
-// import {AddPitstop} from '../ServiceClient';
+import {AddPitstop} from '../ServiceClient';
 
 
 class CreatePitStop extends Component {
@@ -15,11 +15,11 @@ class CreatePitStop extends Component {
   }
   newPitstop = event => {
     console.log(this.state);
-    //this.props.CreateNewPitStop(this.state);
+    //this.props.CreatePitStop(this.state);
     this.setState({ title: "", note: "" })
-    // AddPitstop(this.state, function (response) {
-    //   console.dir(response.data);
-    // })
+    AddPitstop(this.state, function (response) {
+      console.dir(response.data);
+    })
   };
   titleSet = e => {
     this.setState({ title: e.target.value });

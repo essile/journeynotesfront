@@ -1,73 +1,75 @@
 import Axios from "axios";
 var localhost = "https://localhost:44316";
+// const accessToken = sessionStorage.getItem('access_token');
+// const headers = { 'Authorization': `Bearer ${accessToken}`};
 
 export function GetAllTrips(callback) {
-   const accessToken = sessionStorage.getItem('access_token');
-    console.log("Kävin serviceclientissa")
-    console.log(accessToken);
-    // const {getAccessToken} = this.props.auth;
-    const headers = { 'Authorization': `Bearer ${accessToken}`};
-    console.log(headers);
-    Axios.get(localhost + "/api/Trips", {headers}).then(response => {
-      
+  const accessToken = sessionStorage.getItem("access_token");
+
+  console.log("Kävin serviceclientissa");
+  console.log(accessToken);
+  // const {getAccessToken} = this.props.auth;
+  const headers = { Authorization: `Bearer ${accessToken}` };
+
+  console.log(headers);
+  Axios.get(localhost + "/api/Trips", { headers }).then(response => {
     callback(response.data);
   });
 }
 
 export function AddTrip(trip, callback) {
-  const accessToken = sessionStorage.getItem('access_token');
+  const accessToken = sessionStorage.getItem("access_token");
   const data = new FormData();
-  const headers = { 'Authorization': `Bearer ${accessToken}`};
-  data.append('action', 'POST');
-  data.append('headline', trip.headline);
-  data.append('description', trip.description);
-  data.append('startDate', trip.startDate);
-  data.append('endDate', trip.endDate);
-  data.append('picture', new Blob([trip.photo], { type: 'image/jpeg' }));
-  data.append('headers', { 'Authorization': `Bearer ${accessToken}`})
+  const headers = { Authorization: `Bearer ${accessToken}` };
+  data.append("action", "POST");
+  data.append("headline", trip.headline);
+  data.append("description", trip.description);
+  data.append("startDate", trip.startDate);
+  data.append("endDate", trip.endDate);
+  data.append("picture", new Blob([trip.photo], { type: "image/jpeg" }));
+  data.append("headers", { Authorization: `Bearer ${accessToken}` });
   console.log(accessToken);
   console.dir(trip);
-  console.dir( data );
-  Axios.post(localhost + "/api/Trips", data, {headers}).then(response => {
+  console.dir(data);
+  Axios.post(localhost + "/api/Trips", data, { headers }).then(response => {
     //console.dir(response);
     callback(response);
   });
 }
 
-// export function AddPitstop(pitstop, callback) {
-//   const accessToken = sessionStorage.getItem('access_token');
-//   const data = new FormData();
-//   const headers = { 'Authorization': `Bearer ${accessToken}`};
+export function AddPitstop(pitstop, callback) {
+  const accessToken = sessionStorage.getItem("access_token");
 
-//   data.append('action', 'POST');
-//   data.append('title', pitstop.headline);
-//   data.append('note', pitstop.description);
-//   data.append('date', pitstop.date);
-//   data.append('picture', new Blob([pitstop.photo], { type: 'image/jpeg' }));
-//   data.append('headers', { 'Authorization': `Bearer ${accessToken}`})
-//   console.log(accessToken);
-//   console.dir(pitstop);
-//   console.dir( data );
-//   Axios.post(localhost + "/api/Pitstops", data, {headers} ).then(response => {
-//     //console.dir(response);
-//     callback(response);
-//   });
-// }
+  const data = new FormData();
+  const headers = { Authorization: `Bearer ${accessToken}` };
 
-
-export function GetTripPitstops(accessToken, callback) {
-  var tripId = 1;
-  // const accessToken = sessionStorage.getItem('access_token');
-  // var accessToken = sessionStorage.getItem('access_token');
-  console.log("Kävin serviceclientissa")
+  data.append("action", "POST");
+  data.append("title", pitstop.headline);
+  data.append("note", pitstop.description);
+  data.append("date", pitstop.date);
+  data.append("picture", new Blob([pitstop.photo], { type: "image/jpeg" }));
+  data.append("headers", { Authorization: `Bearer ${accessToken}` });
   console.log(accessToken);
+  console.dir(pitstop);
+  console.dir(data);
+  Axios.post(localhost + "/api/Pitstops", data, { headers }).then(response => {
+    //console.dir(response);
+    callback(response);
+  });
+}
+
+export function GetTripPitstops(callback) {
+  var tripId = 1;
+  const accessToken = sessionStorage.getItem("access_token");
+  console.log("Kävin serviceclientissa");
+  console.log(accessToken);
+  
   // const {getAccessToken} = this.props.auth;
   const headers = { 'Authorization': `Bearer ${accessToken}`};
   console.log(headers);
-  Axios.get(localhost + "/api/Trips/" + tripId, {headers}).then(response => {
-    
-  callback(response.data);
-});
+  Axios.get(localhost + "/api/Trips/" + tripId, { headers }).then(response => {
+    callback(response.data);
+  });
 }
 
 export default function() {}
