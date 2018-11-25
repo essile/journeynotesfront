@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FormGroup, ControlLabel, FormControl, Jumbotron, Nav, NavItem } from "react-bootstrap";
+import {AddPitstop} from '../ServiceClient';
 
 
 class CreatePitStop extends Component {
@@ -9,22 +10,34 @@ class CreatePitStop extends Component {
       title: "",
       note: "",
       photo: "",
-      startDate: ""
+      date: ""
     };
   }
   newPitstop = event => {
     console.log(this.state);
     //this.props.CreateNewPitStop(this.state);
-    this.setState({ location: "", description: "" });
+    this.setState({ title: "", note: "" })
+    AddPitstop(this.state, function (response) {
+      console.dir(response.data);
+    })
   };
-  locationSet = e => {
-    this.setState({ location: e.target.value });
-    console.log("location changed");
+  titleSet = e => {
+    this.setState({ title: e.target.value });
+    console.log("title changed");
   };
-  descriptionSet = e => {
-    this.setState({ description: e.target.value });
-    console.log("dtion changed");
+  noteSet = e => {
+    this.setState({ note: e.target.value });
+    console.log("note changed");
   };
+  dateSet = (e) => {
+    console.log(e.target.value);
+    this.setState({ date: e.target.value })
+  }
+  handleImage = (e) => {
+    var image = e.target.files[0];
+    console.dir(image);
+    this.setState({ photo: image });
+  }
   render() {
     return (
       <div>
@@ -33,24 +46,35 @@ class CreatePitStop extends Component {
         </Jumbotron>
         <form>
         <FormGroup>
-          <ControlLabel>Where:</ControlLabel>
+          <ControlLabel>Title:</ControlLabel>
           <FormControl
             type="text"
-            value={this.state.location}
+            value={this.state.title}
             placeholder="The Big Apple"
-            onChange={this.locationSet}
+            onChange={this.titleSet}
           />
-          <ControlLabel>Give a description:</ControlLabel>
+          <ControlLabel>Leave a note:</ControlLabel>
           <FormControl
             type="text"
-            value={this.state.description}
+            value={this.state.note}
             placeholder="Went to the Empire State Building"
-            onChange={this.descriptionSet}
+            onChange={this.noteSet}
           />
+           <FormControl
+              type="file"
+              label="File"
+              help="Example block-level help text here."
+              onChange={this.handleImage}
+            />
+            <FormControl
+              type="date"
+              label="Date"
+              onChange={this.dateSet}
+            />
           </FormGroup>
           
           <Nav bsStyle="pills">
-            <NavItem href="/CreatePitstopView" active onClick={this.newTrip}>
+            <NavItem href="/CreatePitstopView" active onClick={this.newPitstop}>
                 Add
             </NavItem>
           </Nav>

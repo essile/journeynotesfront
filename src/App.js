@@ -48,8 +48,7 @@ class App extends Component {
       <Grid>      
         <Routing />
       </Grid>
-        <header className="App-header">
-       
+        <header className="App-header">      
           <h1 className="App-title">Welcome to Journey Notes</h1>
         </header>
 

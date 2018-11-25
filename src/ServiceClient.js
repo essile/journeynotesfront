@@ -33,6 +33,24 @@ export function AddTrip(trip, callback) {
   });
 }
 
+export function AddPitstop(pitstop, callback) {
+
+  const data = new FormData();
+
+  data.append('action', 'POST');
+  data.append('title', pitstop.headline);
+  data.append('note', pitstop.description);
+  data.append('date', pitstop.date);
+  data.append('picture', new Blob([pitstop.photo], { type: 'image/jpeg' }));
+
+  console.dir(pitstop);
+  console.dir( data );
+  Axios.post(localhost + "/api/Pitstops", data ).then(response => {
+    //console.dir(response);
+    callback(response);
+  });
+}
+
 export function GetTripPitstops(accessToken, callback) {
   var tripId = 1;
   // var accessToken = sessionStorage.getItem('access_token');
