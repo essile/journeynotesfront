@@ -34,29 +34,28 @@ export function AddTrip(trip, callback) {
   });
 }
 
-<<<<<<< HEAD
 export function AddPitstop(pitstop, callback) {
-
+  const accessToken = sessionStorage.getItem('access_token');
   const data = new FormData();
+  const headers = { 'Authorization': `Bearer ${accessToken}`};
 
   data.append('action', 'POST');
   data.append('title', pitstop.headline);
   data.append('note', pitstop.description);
   data.append('date', pitstop.date);
   data.append('picture', new Blob([pitstop.photo], { type: 'image/jpeg' }));
-
+  data.append('headers', { 'Authorization': `Bearer ${accessToken}`})
+  console.log(accessToken);
   console.dir(pitstop);
   console.dir( data );
-  Axios.post(localhost + "/api/Pitstops", data ).then(response => {
+  Axios.post(localhost + "/api/Pitstops", data, {headers} ).then(response => {
     //console.dir(response);
     callback(response);
   });
 }
 
+
 export function GetTripPitstops(accessToken, callback) {
-=======
-export function GetTripPitstops(callback) {
->>>>>>> master
   var tripId = 1;
   const accessToken = sessionStorage.getItem('access_token');
   // var accessToken = sessionStorage.getItem('access_token');
