@@ -1,7 +1,6 @@
 import Axios from "axios";
 var localhost = "https://localhost:44316";
-// const accessToken = sessionStorage.getItem('access_token');
-// const headers = { 'Authorization': `Bearer ${accessToken}`};
+
 
 export function GetAllTrips(callback) {
   const accessToken = sessionStorage.getItem("access_token");
@@ -10,7 +9,6 @@ export function GetAllTrips(callback) {
   console.log(accessToken);
   // const {getAccessToken} = this.props.auth;
   const headers = { Authorization: `Bearer ${accessToken}` };
-
   console.log(headers);
   Axios.get(localhost + "/api/Trips", { headers }).then(response => {
     callback(response.data);
@@ -59,7 +57,7 @@ export function AddPitstop(pitstop, callback) {
 }
 
 export function GetTripPitstops(tripId, callback) {
-  var tripId = 1;
+  //var tripId = 1;
   const accessToken = sessionStorage.getItem("access_token");
   console.log("Kävin serviceclientissa");
   console.log(accessToken);

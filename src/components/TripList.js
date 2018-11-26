@@ -23,18 +23,20 @@ class TripList extends Component {
       <Nav bsStyle="pills">
          <NavItem
            href={`/TripView/${trip.tripId}`} active>
+          <Trip tripId = {this.props.trips.tripId} /> 
          </NavItem>
            <h5>{trip.headline}</h5>
+           <p>{trip.tripId}</p> 
           <p>{trip.description}</p> 
        </Nav>
       </Jumbotron>
       
-    ));
-
+      ));
+      
       return ( 
         <div>      
           {allTrips}   
-          <Trip tripId = {this.props.trips.tripId} />   
+           
         </div>
         
       );

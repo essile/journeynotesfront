@@ -6,14 +6,19 @@ class Trip extends Component {
     super(props);
     this.state = { tripPitstops: [] };
   }
-  componentDidMount = (props) => {
+  componentDidMount = () => {
     // const accessToken = sessionStorage.getItem('access_token');
     // console.log(accessToken);
-    console.log(this.props);
-    var tripId = this.state.tripPitstops.tripId;
+    console.log(this.props.tripId);
+    console.log("kävin täällä" + this.props.tripId);
+    let tripId = this.state.match? undefined : this.props.tripId;
+    console.log(tripId);
+    // if (tripId === undefined) {
+    //   tripId = this.state.match.params.tripId;
+    // } 
     GetTripPitstops(tripId, response => {
       var tripPitstops = response;
-      this.setState({ tripPitstops: tripPitstops });
+      this.setState({ tripPitstops: tripPitstops});
     });
   };
 
@@ -24,8 +29,8 @@ class Trip extends Component {
 
            <h3>{tripPitstop.description}</h3>
 
-           {tripPitstop.pitstops.map(title =>
-            <h5>{title.title}</h5>)}     
+           {tripPitstop.pitstops.map(pitstop =>
+            <h5>{pitstop.title}</h5>)}     
             
       </li>
     ));

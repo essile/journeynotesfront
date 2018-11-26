@@ -14,6 +14,7 @@ class CreatePitStop extends Component {
     };
   }
   newPitstop = event => {
+    event.preventDefault();
     console.log(this.state);
     //this.props.CreatePitStop(this.state);
     this.setState({ title: "", note: "" })
