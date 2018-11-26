@@ -32,6 +32,7 @@ class FirstView extends Component {
             Create new Trip
           </NavItem>
         </Nav>
+        
       </div>
     );
   }

@@ -45,12 +45,12 @@ class App extends Component {
     let logoutButton =  this.createLogoutButton();
     return (
       <div className="App">
-      <Grid>      
+      {/* <Grid>      
         <Routing />
-      </Grid>
-        <header className="App-header">      
+      </Grid> */}
+        {/* <header className="App-header">       */}
           <h1 className="App-title">Welcome to Journey Notes</h1>
-        </header>
+        {/* </header> */}
 
          <Switch>
           <Route exact path="/" render={() => this.renderFirstView()}/>
@@ -58,9 +58,7 @@ class App extends Component {
         </Switch>
         {/* <Routing /> */}
         {logoutButton}
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        
       </div>
     );
   }
