@@ -70,4 +70,25 @@ export function GetTripWithPitstops(tripId, callback) {
   });
 }
 
+export function DeleteTrip(tripId) {
+  const accessToken = sessionStorage.getItem("access_token");
+  const headers = { 'Authorization': `Bearer ${accessToken}`};
+  return Axios.delete(localhost + "/api/Trips/"+ tripId, { headers })
+  .then(response=>{
+      console.log("matka poistettu");
+      console.dir(response);
+  });
+}
+
+export function DeletePitstop(tripId, pitstopId) {
+  const accessToken = sessionStorage.getItem("access_token");
+  const headers = { 'Authorization': `Bearer ${accessToken}`};
+  console.log("delete-funktiosta:" + accessToken);
+  return Axios.delete(localhost + '/api/Trips/'+ tripId + "/" + pitstopId, {headers})
+  .then(response=>{
+      console.log("pitstop poistettu");
+      console.dir(response);
+  });
+}
+
 export default function() {}
