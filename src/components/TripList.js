@@ -6,11 +6,7 @@ import {Link} from 'react-router-dom';
 class TripList extends Component {
   
   // tripId = this.state.match.params.tripId;
-  handleSelect = (activeKey, event) => {
-    event.preventDefault();
-    let tripId = activeKey;
-    alert(`you clicked ${tripId}`)
-  }
+  
 
   render() {
     var styles={
@@ -20,8 +16,8 @@ class TripList extends Component {
     console.log(this.props.trips);
     var allTrips = this.props.trips.map(trip => (
       <Jumbotron style={styles} key={trip.tripId}>
-      <Link to={"/TripView/" + trip.tripId} onSelect={this.handleSelect}>  
-      {/* <Link to= {"/TripView"}> */}
+      <Link to={"/TripView/" + trip.tripId} >  
+      <img src={trip.mainPhotoSmallUrl} alt="trip main" />
       <h5>{trip.headline}</h5>
       <p>{trip.description}</p>
       </Link>

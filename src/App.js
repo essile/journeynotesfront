@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import AuthService from "./AuthService";
-
 import { Switch, Route } from "react-router-dom";
 import FirstView from "./views/FirstView";
 import CreateTripView from "./views/CreateTripView";
-import CreatePitstopView from "./views/CreatePitstopView";
 import TripView from "./views/TripView";
 
 class App extends Component {
@@ -61,7 +59,6 @@ class App extends Component {
           <Route exact path="/" render={() => this.renderFirstView()} />
           <Route path="/startSession" render={({ history }) => this.startSession(history)}/>
           <Route path="/CreateTripView" component={CreateTripView} />
-          <Route path="/CreatePitstopView" component={CreatePitstopView} />
           <Route path="/TripView/:tripId" component={TripView} />
         </Switch>      
         {logoutButton}
