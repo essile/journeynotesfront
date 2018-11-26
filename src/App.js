@@ -56,7 +56,7 @@ class App extends Component {
           <Route exact path="/" render={() => this.renderFirstView()}/>
           <Route path="/startSession" render={({history}) => this.startSession(history)}/>
         </Switch>
-        {/* <Routing /> */}
+        <Routing />
         {logoutButton}
         
       </div>

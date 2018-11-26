@@ -11,11 +11,16 @@ class Trip extends Component {
     // console.log(accessToken);
     console.log(this.props.tripId);
     console.log("kävin täällä" + this.props.tripId);
-    let tripId = this.state.match? undefined : this.props.tripId;
-    console.log(tripId);
-    // if (tripId === undefined) {
-    //   tripId = this.state.match.params.tripId;
-    // } 
+    console.log("match" + this.state.match)
+    let tripId;
+    if(this.state.match === undefined)
+    {
+      tripId = this.props.tripId;
+    }
+    else
+    {
+      tripId = this.props.match.parms.redirectParam;
+    }
     GetTripPitstops(tripId, response => {
       var tripPitstops = response;
       this.setState({ tripPitstops: tripPitstops});
