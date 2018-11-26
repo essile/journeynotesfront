@@ -9,13 +9,15 @@ class Trip extends Component {
   componentDidMount = () => {
     // const accessToken = sessionStorage.getItem('access_token');
     // console.log(accessToken);
-    console.log(this.props.tripId);
-    console.log("kävin täällä" + this.props.tripId);
-    let tripId = this.state.match? undefined : this.props.tripId;
+    console.log("tripin propsit", this.props);
+    console.log("kävin täällä ");
+    let tripId;
     console.log(tripId);
-    // if (tripId === undefined) {
-    //   tripId = this.state.match.params.tripId;
-    // } 
+      if (this.props.match === undefined) {
+        tripId = this.props.tripId;
+      } else {
+        tripId = this.props.match.params.tripId;
+      }
     GetTripPitstops(tripId, response => {
       var tripPitstops = response;
       this.setState({ tripPitstops: tripPitstops});
@@ -27,10 +29,10 @@ class Trip extends Component {
     var allTripPitstops = [].concat(this.state.tripPitstops).map(tripPitstop => (
       <li key={tripPitstop.tripId}>
 
-           <h3>{tripPitstop.description}</h3>
+           <h2>{tripPitstop.description}</h2>
 
            {tripPitstop.pitstops.map(pitstop =>
-            <h5>{pitstop.title}</h5>)}     
+            <h3>{pitstop.title}</h3>)}     
             
       </li>
     ));
