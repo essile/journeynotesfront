@@ -12,10 +12,7 @@ class FirstView extends Component {
   }
 
   componentDidMount = () => {
-    const accessToken = sessionStorage.getItem('access_token');
-    console.log("Sessiosta saatu: " + accessToken);
-    console.log(accessToken);
-    GetAllTrips(accessToken, response => {
+      GetAllTrips(response => {
       var trips = response;
       this.setState({ trips: trips });
       console.log(this.state.trips);
@@ -35,6 +32,7 @@ class FirstView extends Component {
             Create new Trip
           </NavItem>
         </Nav>
+        
       </div>
     );
   }

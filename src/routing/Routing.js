@@ -15,9 +15,8 @@ class Routing extends Component {
           <Switch>
             <Route exact path="/" component={FirstView}/>
             <Route path="/CreateTripView" component={CreateTripView} />
-            {/* <Route path="/FirstView" component={FirstView} /> */}
             <Route path="/CreatePitstopView" component={CreatePitstopView} />
-            <Route path="/TripView" component={TripView} />
+            <Route path="/TripView/:tripId" component={TripView} />
 
           </Switch>
           </Col>
