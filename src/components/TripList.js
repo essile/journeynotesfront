@@ -15,6 +15,8 @@ class TripList extends Component {
     }
     console.log("moikka");
     console.log(this.props.trips);
+    
+    
     var allTrips = this.props.trips.map(trip => (
       <Jumbotron style={styles} key={trip.tripId}>
       <Link to={"/TripView/" + trip.tripId} >  
@@ -27,6 +29,7 @@ class TripList extends Component {
          <NavItem
            href={`/TripView/${trip.tripId}`} active>          
          </NavItem>
+       
            <h5>{trip.headline}</h5>
            <p>{trip.tripId}</p> 
           <p>{trip.description}</p> 
@@ -34,7 +37,6 @@ class TripList extends Component {
       </Jumbotron>
       
       ));
-      
       return ( 
         <div>      
           {allTrips}   
