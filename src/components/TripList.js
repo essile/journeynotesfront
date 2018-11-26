@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import {Nav, NavItem, Jumbotron} from 'react-bootstrap';
+import { Jumbotron} from 'react-bootstrap';
 import Trip from './Trip';
+import {Link} from 'react-router-dom';
 
 class TripList extends Component {
   
   // tripId = this.state.match.params.tripId;
   
+
   render() {
     var styles={
       dropshadow: "4px"
@@ -16,28 +18,28 @@ class TripList extends Component {
     
     var allTrips = this.props.trips.map(trip => (
       <Jumbotron style={styles} key={trip.tripId}>
-      {/* <Link to={"/TripView/" + trip.tripId}>  */}
-      {/* <Link to= {"/TripView"}> */}
-      {/* <h5>{trip.headline}</h5>
+      <Link to={"/TripView/" + trip.tripId} >  
+      <img src={trip.mainPhotoSmallUrl} alt="trip main" />
+      <h5>{trip.headline}</h5>
       <p>{trip.description}</p>
-      </Link> */}
+      </Link>
       
-      <Nav bsStyle="pills">
-      <Trip tripId= {trip.tripId}/>
+      {/* <Nav bsStyle="pills" activeKey={trip.tripId} onSelect={this.handleSelect}>
          <NavItem
-           href={`/TripView/${trip.tripId}`} active>
+           href={`/TripView/${trip.tripId}`} active>          
          </NavItem>
        
            <h5>{trip.headline}</h5>
            <p>{trip.tripId}</p> 
           <p>{trip.description}</p> 
-       </Nav>
-      </Jumbotron> 
+       </Nav> */}
+      </Jumbotron>
+      
       ));
       return ( 
         <div>      
           {allTrips}   
-         
+          <Trip tripId = {this.props.trips.tripId} />     
         </div>
         
       );

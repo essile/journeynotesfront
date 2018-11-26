@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FormGroup, ControlLabel, FormControl, Jumbotron, Nav, NavItem } from "react-bootstrap";
-import {AddPitstop} from '../ServiceClient';
+import {AddPitstop, GetTripWithPitstops} from '../ServiceClient';
 
 
 class CreatePitStop extends Component {
@@ -10,18 +10,38 @@ class CreatePitStop extends Component {
       title: "",
       note: "",
       photo: "",
-      date: ""
+      date: "",
+      tripId: ""
     };
   }
+
+  componentDidMount = () => {
+    let tripId;
+    if (this.props.match === undefined) {
+      tripId = this.props.tripId;
+    } else {
+      tripId = this.props.match.params.tripId;
+    }
+    this.setState({tripId : tripId})
+  };
+
   newPitstop = event => {
-    event.preventDefault();
-    console.log(this.state);
-    //this.props.CreatePitStop(this.state);
     this.setState({ title: "", note: "" })
     AddPitstop(this.state, function (response) {
-      console.dir(response.data);
     })
+    this.setState(this.state);
+    this.update();
   };
+
+  update = () => {
+    let tripId = this.state.tripId;
+    GetTripWithPitstops(tripId, response => {
+      var tripPitstops = response;
+      this.setState({ tripPitstops: tripPitstops});
+    });
+    this.setState(this.state);
+  }
+
   titleSet = e => {
     this.setState({ title: e.target.value });
     console.log("title changed");
@@ -75,7 +95,7 @@ class CreatePitStop extends Component {
           </FormGroup>
           
           <Nav bsStyle="pills">
-            <NavItem href="/CreatePitstopView" active onClick={this.newPitstop}>
+            <NavItem href={`/TripView/${this.state.tripId}`} active onClick={this.newPitstop}>
                 Add
             </NavItem>
           </Nav>

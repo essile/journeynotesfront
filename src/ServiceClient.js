@@ -42,21 +42,21 @@ export function AddPitstop(pitstop, callback) {
   const headers = { Authorization: `Bearer ${accessToken}` };
 
   data.append("action", "POST");
-  data.append("title", pitstop.headline);
-  data.append("note", pitstop.description);
+  data.append("title", pitstop.title);
+  data.append("note", pitstop.note);
   data.append("date", pitstop.date);
   data.append("picture", new Blob([pitstop.photo], { type: "image/jpeg" }));
   data.append("headers", { Authorization: `Bearer ${accessToken}` });
   console.log(accessToken);
   console.dir(pitstop);
   console.dir(data);
-  Axios.post(localhost + "/api/Pitstops", data, { headers }).then(response => {
+  Axios.post(localhost + "/api/Pitstops/" + pitstop.tripId, data, { headers }).then(response => {
     //console.dir(response);
     callback(response);
   });
 }
 
-export function GetTripPitstops(tripId, callback) {
+export function GetTripWithPitstops(tripId, callback) {
   //var tripId = 1;
   const accessToken = sessionStorage.getItem("access_token");
   console.log("Kävin serviceclientissa");
