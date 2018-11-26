@@ -58,7 +58,7 @@ export function AddPitstop(pitstop, callback) {
   });
 }
 
-export function GetTripPitstops(callback) {
+export function GetTripPitstops(tripId, callback) {
   var tripId = 1;
   const accessToken = sessionStorage.getItem("access_token");
   console.log("Kävin serviceclientissa");
