@@ -6,6 +6,7 @@ import FirstView from "./views/FirstView";
 import CreateTripView from "./views/CreateTripView";
 import TripView from "./views/TripView";
 import { Col } from "react-bootstrap";
+import EditTripView from "./views/EditTripView";
 
 
 class App extends Component {
@@ -65,6 +66,7 @@ class App extends Component {
           <Route path="/FirstView" component={FirstView}/>
           <Route path="/CreateTripView" component={CreateTripView} />
           <Route path="/TripView/:tripId" component={TripView} />
+          <Route path="/EditTripView/:tripId" component={EditTripView} />
         </Switch>      
         {logoutButton}
         </Col>

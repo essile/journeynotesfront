@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-import { GetTripWithPitstops, DeleteTrip, DeletePitstop } from "../ServiceClient";
-import { Button, Jumbotron, Nav, NavItem } from "react-bootstrap";
+import {
+  GetTripWithPitstops,
+  DeleteTrip,
+  DeletePitstop
+} from "../ServiceClient";
+import { Jumbotron, Nav, NavItem } from "react-bootstrap";
 import deletebutton from "../images/deletebutton.png";
 
 const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
@@ -28,14 +32,14 @@ class Trip extends Component {
   handleTripDelete = () => {
     let tripId = this.props.match.params.tripId;
     console.log(tripId);
-    DeleteTrip(tripId)
-  }
+    DeleteTrip(tripId);
+  };
 
-  handlePitstopDelete = (pitstopId) => {
+  handlePitstopDelete = pitstopId => {
     let tripId = this.props.match.params.tripId;
     console.log("poistettavan pitstopin id:" + pitstopId);
-    DeletePitstop(tripId, pitstopId)
-  }
+    DeletePitstop(tripId, pitstopId);
+  };
 
   render() {
     console.log(this.state.tripPitstops);
@@ -43,21 +47,21 @@ class Trip extends Component {
       .concat(this.state.tripPitstops)
       .map(tripPitstop => (
         <div key={tripPitstop.tripId}>
-        <Jumbotron className="jumbo">
-          <h2>{tripPitstop.headline}</h2>
-          <p>{tripPitstop.description}</p>
-{/*           <Button bsStyle="danger" onClick={this.handleTripDelete}>
-          Delete trip
-          </Button> */}
-          <Nav>
+          <Jumbotron className="jumbo">
+            <h2>{tripPitstop.headline}</h2>
+            <p>{tripPitstop.description}</p>
+             
+            <Nav>
               <NavItem href="/FirstView" active onClick={this.handleTripDelete}>
-                  <div>
-                    <img className='plus' src={deletebutton} alt='Delete'/>
-                  </div>
-                </NavItem> 
-              </Nav>
-
-        </Jumbotron>
+                <div>
+                  <img className="plus" src={deletebutton} alt="Delete" />
+                </div>
+              </NavItem>
+              <NavItem href={`/EditTripView/${this.props.match.params.tripId}`} active >
+                Edit
+              </NavItem>
+            </Nav>
+          </Jumbotron>
           {tripPitstop.pitstops.map(pitstop => {
             console.log(photoUrl + pitstop.photoMediumUrl);
 
@@ -65,22 +69,20 @@ class Trip extends Component {
               <Jumbotron className="jumbo">
                 <h3>{pitstop.title}</h3>
                 <p>{pitstop.note}</p>
-<<<<<<< HEAD
-                <img src="https://media.giphy.com/media/1Ahh3bPFpdAloVz4MV/giphy.gif" alt="pitstop" />
-                {/* <img src={photoUrl + pitstop.photoMediumUrl} alt="pitstop" /> */}
-                <Button bsStyle="danger" onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
-=======
-                <img src={photoUrl + pitstop.photoMediumUrl} alt="pitstop" />
-{/*                 <Button bsStyle="danger" onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
->>>>>>> master
-                  Delete pitstop
-                </Button> */}
+                <img
+                  src="https://media.giphy.com/media/1Ahh3bPFpdAloVz4MV/giphy.gif"
+                  alt="pitstop"
+                />
+                <img src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/1Ahh3bPFpdAloVz4MV/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="pitstop" />
                 <Nav>
-                <NavItem active onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
-                  <div>
-                    <img className='plus' src={deletebutton} alt='Delete'/>
-                  </div>
-                </NavItem> 
+                  <NavItem
+                    active
+                    onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}
+                  >
+                    <div>
+                      <img className="plus" src={deletebutton} alt="Delete" />
+                    </div>
+                  </NavItem>
                 </Nav>
               </Jumbotron>
             );

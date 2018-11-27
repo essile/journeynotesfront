@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Nav, NavItem } from "react-bootstrap";
-import { FormGroup, ControlLabel, FormControl, Jumbotron, Button, Form } from "react-bootstrap";
-import { AddTrip, GetTripWithPitstops } from "../ServiceClient";
+import { FormGroup, ControlLabel, FormControl, Jumbotron, Form } from "react-bootstrap";
+import { AddTrip } from "../ServiceClient";
 import plusbutton from "../images/plusbutton.png";
 import '../cssstyles/Form.css';
 
@@ -108,12 +108,6 @@ class Trip extends Component {
             />
           </Form>
           </FormGroup>
-{/*           <Nav bsStyle="pills">
-            {/* <NavItem href="/CreatePitstopView" active onClick={this.newTrip}> */}
-           {/*}<NavItem active onClick={this.newTrip}>
-              Create
-            </NavItem> 
-          </Nav>*/}
           <Nav>
             <NavItem href="/FirstView" active onClick={this.newTrip}>
             <div>
