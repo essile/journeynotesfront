@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { GetTripWithPitstops, DeleteTrip, DeletePitstop } from "../ServiceClient";
-import { Button, Jumbotron } from "react-bootstrap";
+import { Button, Jumbotron, Nav, NavItem } from "react-bootstrap";
+import deletebutton from "../images/deletebutton.png";
+
 const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
 
 class Trip extends Component {
@@ -41,12 +43,21 @@ class Trip extends Component {
       .concat(this.state.tripPitstops)
       .map(tripPitstop => (
         <div key={tripPitstop.tripId}>
+        <Jumbotron className="jumbo">
           <h2>{tripPitstop.headline}</h2>
           <p>{tripPitstop.description}</p>
-          <Button bsStyle="danger" onClick={this.handleTripDelete}>
+{/*           <Button bsStyle="danger" onClick={this.handleTripDelete}>
           Delete trip
-          </Button>
+          </Button> */}
+          <Nav>
+              <NavItem href="/FirstView" active onClick={this.handleTripDelete}>
+                  <div>
+                    <img className='plus' src={deletebutton} alt='Delete'/>
+                  </div>
+                </NavItem> 
+              </Nav>
 
+        </Jumbotron>
           {tripPitstop.pitstops.map(pitstop => {
             console.log(photoUrl + pitstop.photoMediumUrl);
 
@@ -55,9 +66,16 @@ class Trip extends Component {
                 <h3>{pitstop.title}</h3>
                 <p>{pitstop.note}</p>
                 <img src={photoUrl + pitstop.photoMediumUrl} alt="pitstop" />
-                <Button bsStyle="danger" onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
+{/*                 <Button bsStyle="danger" onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
                   Delete pitstop
-                </Button>
+                </Button> */}
+                <Nav>
+                <NavItem active onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
+                  <div>
+                    <img className='plus' src={deletebutton} alt='Delete'/>
+                  </div>
+                </NavItem> 
+                </Nav>
               </Jumbotron>
             );
           })}
