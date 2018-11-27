@@ -6,6 +6,7 @@ import FirstView from "./views/FirstView";
 import CreateTripView from "./views/CreateTripView";
 import TripView from "./views/TripView";
 import { Col } from "react-bootstrap";
+import logoutbutton from "./images/logoutbutton.png";
 
 
 class App extends Component {
@@ -45,8 +46,12 @@ class App extends Component {
 
     if (this.authService.isAuthenticated()) {
       console.log("logout button");
-      button = (
-        <button onClick={() => this.authService.logout()}>Logout</button>
+      button = (                  
+      <div>
+        <img className='plus' src={logoutbutton} alt='Logout'
+         onClick={() => this.authService.logout()}/>
+         <h3>Logout</h3>
+      </div>
       );
     }
     return button;
@@ -64,7 +69,8 @@ class App extends Component {
           <Route path="/startSession" render={({ history }) => this.startSession(history)}/>
           <Route path="/CreateTripView" component={CreateTripView} />
           <Route path="/TripView/:tripId" component={TripView} />
-        </Switch>      
+        </Switch>  
+            
         {logoutButton}
         </Col>
       </div>
