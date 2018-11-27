@@ -4,8 +4,10 @@ import {
   DeleteTrip,
   DeletePitstop
 } from "../ServiceClient";
-import { Jumbotron, Nav, NavItem } from "react-bootstrap";
+import { Jumbotron, Nav, NavItem, Row } from "react-bootstrap";
 import deletebutton from "../images/deletebutton.png";
+import editbutton from "../images/editbutton.png";
+
 
 const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
 
@@ -47,21 +49,27 @@ class Trip extends Component {
       .concat(this.state.tripPitstops)
       .map(tripPitstop => (
         <div key={tripPitstop.tripId}>
+
           <Jumbotron className="jumbo">
             <h2>{tripPitstop.headline}</h2>
             <p>{tripPitstop.description}</p>
-             
+             <Row>
             <Nav>
+            <NavItem href={`/EditTripView/${this.props.match.params.tripId}`} active >
+                  <div>
+                    <img className='plus' src={editbutton} alt='Edit'/>
+                  </div>
+              </NavItem>
               <NavItem href="/FirstView" active onClick={this.handleTripDelete}>
                 <div>
                   <img className="plus" src={deletebutton} alt="Delete" />
                 </div>
               </NavItem>
-              <NavItem href={`/EditTripView/${this.props.match.params.tripId}`} active >
-                Edit
-              </NavItem>
+              
             </Nav>
+            </Row>
           </Jumbotron>
+
           {tripPitstop.pitstops.map(pitstop => {
             console.log(photoUrl + pitstop.photoMediumUrl);
 
