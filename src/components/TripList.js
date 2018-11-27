@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Jumbotron} from 'react-bootstrap';
 import Trip from './Trip';
 import {Link} from 'react-router-dom';
+const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
 
 class TripList extends Component {
   
@@ -14,11 +15,13 @@ class TripList extends Component {
     }
     console.log("moikka");
     console.log(this.props.trips);
+    
+    
     var allTrips = this.props.trips.map(trip => (
       <Jumbotron style={styles} key={trip.tripId}>
       <Link to={"/TripView/" + trip.tripId} >  
-      <img src={trip.mainPhotoSmallUrl} alt="trip main" />
-      <h5>{trip.headline}</h5>
+      <img src={photoUrl + trip.mainPhotoSmallUrl}alt="trip main" />
+      <h2>{trip.headline}</h2>
       <p>{trip.description}</p>
       </Link>
       
@@ -26,6 +29,7 @@ class TripList extends Component {
          <NavItem
            href={`/TripView/${trip.tripId}`} active>          
          </NavItem>
+       
            <h5>{trip.headline}</h5>
            <p>{trip.tripId}</p> 
           <p>{trip.description}</p> 
@@ -33,7 +37,6 @@ class TripList extends Component {
       </Jumbotron>
       
       ));
-      
       return ( 
         <div>      
           {allTrips}   
