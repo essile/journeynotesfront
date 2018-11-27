@@ -77,10 +77,6 @@ class Trip extends Component {
               <Jumbotron className="jumbo">
                 <h3>{pitstop.title}</h3>
                 <p>{pitstop.note}</p>
-                <img
-                  src="https://media.giphy.com/media/1Ahh3bPFpdAloVz4MV/giphy.gif"
-                  alt="pitstop"
-                />
                 <img src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/1Ahh3bPFpdAloVz4MV/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="pitstop" />
                 <Nav>
                   <NavItem
