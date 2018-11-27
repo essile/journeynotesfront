@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { GetTripWithPitstops, DeleteTrip, DeletePitstop } from "../ServiceClient";
-import { Button, Jumbotron, Nav, NavItem, Row } from "react-bootstrap";
+import { Button, Jumbotron, Nav, NavItem, Row, Col, Grid } from "react-bootstrap";
 import deletebutton from "../images/deletebutton.png";
 import editbutton from "../images/editbutton.png";
+import '../cssstyles/View.css';
 
 
 const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
@@ -51,10 +52,10 @@ class Trip extends Component {
 {/*           <Button bsStyle="danger" onClick={this.handleTripDelete}>
           Delete trip
           </Button> */}
-          <Row>
+
           <Nav>
                 {/* Tähän on siis tulossa edit */}
-                <NavItem href="/FirstView" active onClick={this.handleTripDelete}>
+                <NavItem  href="/FirstView" active onClick={this.handleTripDelete}>
                   <div>
                     <img className='plus' src={editbutton} alt='Edit'/>
                   </div>
@@ -65,7 +66,7 @@ class Trip extends Component {
                   </div>
                 </NavItem> 
               </Nav>
-          </Row>
+
         </Jumbotron>
           {tripPitstop.pitstops.map(pitstop => {
             console.log(photoUrl + pitstop.photoMediumUrl);

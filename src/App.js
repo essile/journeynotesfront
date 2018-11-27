@@ -5,8 +5,9 @@ import { Switch, Route } from "react-router-dom";
 import FirstView from "./views/FirstView";
 import CreateTripView from "./views/CreateTripView";
 import TripView from "./views/TripView";
-import { Col } from "react-bootstrap";
+import { Col, Navbar, NavDropdown, MenuItem } from "react-bootstrap";
 import logoutbutton from "./images/logoutbutton.png";
+import menu from "./images/menu.png";
 
 
 class App extends Component {
@@ -60,6 +61,16 @@ class App extends Component {
   render() {
     let logoutButton = this.createLogoutButton();
     return (
+      <div>
+      <Navbar className="menu">
+       <Navbar.Brand>
+        
+        <img src={menu} alt='Menu' className="menuicon"/>
+      </Navbar.Brand>
+        <NavDropdown >
+          <MenuItem>Action</MenuItem>
+        </NavDropdown>
+      </Navbar>
       <div className="App">
       <Col xs={12} sm={8} md={6}>     
         <h1>journey</h1> 
@@ -73,6 +84,7 @@ class App extends Component {
             
         {logoutButton}
         </Col>
+        </div>
       </div>
     );
   }

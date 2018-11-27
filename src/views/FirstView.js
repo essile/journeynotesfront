@@ -30,7 +30,7 @@ class FirstView extends Component {
           <TripList trips={this.state.trips} />
           </Jumbotron>
           <Jumbotron className="jumbo">
-          <Nav className="Nav">
+          <Nav className="nav">
             <NavItem href="/CreateTripView" active onClick={this.newTrip}>
               Create new Trip
               <div>
