@@ -6,8 +6,10 @@ import FirstView from "./views/FirstView";
 import CreateTripView from "./views/CreateTripView";
 import TripView from "./views/TripView";
 import { Col, Navbar, NavDropdown, MenuItem } from "react-bootstrap";
+import EditTripView from "./views/EditTripView";
 import logoutbutton from "./images/logoutbutton.png";
 import menu from "./images/menu.png";
+
 
 
 class App extends Component {
@@ -78,10 +80,11 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => this.renderFirstView()} />
           <Route path="/startSession" render={({ history }) => this.startSession(history)}/>
+          <Route path="/FirstView" component={FirstView}/>
           <Route path="/CreateTripView" component={CreateTripView} />
           <Route path="/TripView/:tripId" component={TripView} />
-        </Switch>  
-            
+          <Route path="/EditTripView/:tripId" component={EditTripView} />
+        </Switch>      
         {logoutButton}
         </Col>
         </div>

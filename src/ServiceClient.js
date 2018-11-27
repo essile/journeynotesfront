@@ -25,7 +25,7 @@ export function AddTrip(trip, callback) {
   data.append("startDate", trip.startDate);
   data.append("endDate", trip.endDate);
   data.append("picture", new Blob([trip.photo], { type: "image/jpeg" }));
-  data.append("headers", { Authorization: `Bearer ${accessToken}` });
+  
   console.log(accessToken);
   console.dir(trip);
   console.dir(data);
@@ -46,7 +46,6 @@ export function AddPitstop(pitstop, callback) {
   data.append("note", pitstop.note);
   data.append("date", pitstop.date);
   data.append("picture", new Blob([pitstop.photo], { type: "image/jpeg" }));
-  data.append("headers", { Authorization: `Bearer ${accessToken}` });
   console.log(accessToken);
   console.dir(pitstop);
   console.dir(data);
@@ -87,6 +86,29 @@ export function DeletePitstop(tripId, pitstopId) {
   return Axios.delete(localhost + '/api/Trips/'+ tripId + "/" + pitstopId, {headers})
   .then(response=>{
       console.log("pitstop poistettu");
+      console.dir(response);
+  });
+}
+
+export function EditTrip(trip) {
+  const accessToken = sessionStorage.getItem("access_token");
+  const headers = { 'Authorization': `Bearer ${accessToken}`};
+
+  console.log("EditTrip, trip", trip);
+
+  // const data = new FormData();
+  // data.append("action", "PUT");
+  // data.append("headline", trip.headline);
+  // data.append("description", trip.description);
+  // data.append("startDate", trip.startDate);
+  // data.append("endDate", trip.endDate);
+  // data.append("MainPhotoUrl", trip.MainPhotoUrl);
+  // data.append("MainPhotoSmallUrl", trip.MainPhotoSmallUrl);
+
+  console.log("edittrip-funktiosta:" + accessToken);
+  return Axios.put(localhost + '/api/Trips/'+ trip.tripId, trip, {headers})
+  .then(response=> {
+      console.log("trip edited");
       console.dir(response);
   });
 }

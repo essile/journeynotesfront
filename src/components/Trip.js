@@ -49,9 +49,7 @@ class Trip extends Component {
         <Jumbotron className="jumbo">
           <h2>{tripPitstop.headline}</h2>
           <p>{tripPitstop.description}</p>
-{/*           <Button bsStyle="danger" onClick={this.handleTripDelete}>
-          Delete trip
-          </Button> */}
+
 
           <Nav>
                 {/* Tähän on siis tulossa edit */}
