@@ -3,10 +3,10 @@
     font-size: 50em;
     margin: auto;
 }
-/* .jumbo{
+.jumbo{
     background-color: #efe7d6;
     margin: 2em;
-} */
+} 
 .nav {
     display: flex;
     flex-direction: column;

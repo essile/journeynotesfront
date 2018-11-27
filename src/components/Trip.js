@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { GetTripWithPitstops, DeleteTrip, DeletePitstop } from "../ServiceClient";
-import { Button } from "react-bootstrap";
+import { Button, Jumbotron } from "react-bootstrap";
 const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
 
 class Trip extends Component {
@@ -51,14 +51,14 @@ class Trip extends Component {
             console.log(photoUrl + pitstop.photoMediumUrl);
 
             return (
-              <div className="tripView">
+              <Jumbotron className="jumbo">
                 <h3>{pitstop.title}</h3>
                 <p>{pitstop.note}</p>
                 <img src={photoUrl + pitstop.photoMediumUrl} alt="pitstop" />
                 <Button bsStyle="danger" onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
                   Delete pitstop
                 </Button>
-              </div>
+              </Jumbotron>
             );
           })}
         </div>
