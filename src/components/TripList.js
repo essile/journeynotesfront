@@ -20,7 +20,8 @@ class TripList extends Component {
     var allTrips = this.props.trips.map(trip => (
       <Jumbotron style={styles} key={trip.tripId}>
       <Link to={"/TripView/" + trip.tripId} >  
-      <img src={photoUrl + trip.mainPhotoSmallUrl}alt="trip main" />
+      {/* <img src={photoUrl + trip.mainPhotoSmallUrl}alt="trip main" /> */}
+      <img src="https://media.giphy.com/media/1Ahh3bPFpdAloVz4MV/giphy.gif" alt="trip main" />
       <h2>{trip.headline}</h2>
       <p>{trip.description}</p>
       </Link>
@@ -40,7 +41,7 @@ class TripList extends Component {
       return ( 
         <div>      
           {allTrips}   
-          <Trip tripId = {this.props.trips.tripId} />     
+          {/* <Trip tripId = {this.props.trips.tripId} />      */}
         </div>
         
       );

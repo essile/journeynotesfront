@@ -54,7 +54,8 @@ class Trip extends Component {
               <div className="tripView">
                 <h3>{pitstop.title}</h3>
                 <p>{pitstop.note}</p>
-                <img src={photoUrl + pitstop.photoMediumUrl} alt="pitstop" />
+                <img src="https://media.giphy.com/media/1Ahh3bPFpdAloVz4MV/giphy.gif" alt="pitstop" />
+                {/* <img src={photoUrl + pitstop.photoMediumUrl} alt="pitstop" /> */}
                 <Button bsStyle="danger" onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
                   Delete pitstop
                 </Button>

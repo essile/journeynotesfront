@@ -62,6 +62,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => this.renderFirstView()} />
           <Route path="/startSession" render={({ history }) => this.startSession(history)}/>
+          <Route path="/FirstView" component={FirstView}/>
           <Route path="/CreateTripView" component={CreateTripView} />
           <Route path="/TripView/:tripId" component={TripView} />
         </Switch>      
