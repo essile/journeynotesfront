@@ -69,10 +69,10 @@ class Trip extends Component {
             console.log(photoUrl + pitstop.photoMediumUrl);
 
             return (
-              <Jumbotron className="jumbo">
+              <Jumbotron key={tripPitstop.id} className="jumbo">
                 <h3>{pitstop.title}</h3>
                 <p>{pitstop.note}</p>
-                <img src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/1Ahh3bPFpdAloVz4MV/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="trip main" />
+                <img src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/52F98945Myjt0bnFKY/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="trip main" />
                 <Nav>
                 <NavItem active onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
                   <div>
