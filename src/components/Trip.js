@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { GetTripWithPitstops, DeleteTrip, DeletePitstop } from "../ServiceClient";
-import { Button } from "react-bootstrap";
+import { Button, Jumbotron, Nav, NavItem } from "react-bootstrap";
+import deletebutton from "../images/deletebutton.png";
+
 const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
 
 class Trip extends Component {
@@ -41,25 +43,46 @@ class Trip extends Component {
       .concat(this.state.tripPitstops)
       .map(tripPitstop => (
         <div key={tripPitstop.tripId}>
+        <Jumbotron className="jumbo">
           <h2>{tripPitstop.headline}</h2>
           <p>{tripPitstop.description}</p>
-          <Button bsStyle="danger" onClick={this.handleTripDelete}>
+{/*           <Button bsStyle="danger" onClick={this.handleTripDelete}>
           Delete trip
-          </Button>
+          </Button> */}
+          <Nav>
+              <NavItem href="/FirstView" active onClick={this.handleTripDelete}>
+                  <div>
+                    <img className='plus' src={deletebutton} alt='Delete'/>
+                  </div>
+                </NavItem> 
+              </Nav>
 
+        </Jumbotron>
           {tripPitstop.pitstops.map(pitstop => {
             console.log(photoUrl + pitstop.photoMediumUrl);
 
             return (
-              <div className="tripView">
+              <Jumbotron className="jumbo">
                 <h3>{pitstop.title}</h3>
                 <p>{pitstop.note}</p>
+<<<<<<< HEAD
                 <img src="https://media.giphy.com/media/1Ahh3bPFpdAloVz4MV/giphy.gif" alt="pitstop" />
                 {/* <img src={photoUrl + pitstop.photoMediumUrl} alt="pitstop" /> */}
                 <Button bsStyle="danger" onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
+=======
+                <img src={photoUrl + pitstop.photoMediumUrl} alt="pitstop" />
+{/*                 <Button bsStyle="danger" onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
+>>>>>>> master
                   Delete pitstop
-                </Button>
-              </div>
+                </Button> */}
+                <Nav>
+                <NavItem active onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
+                  <div>
+                    <img className='plus' src={deletebutton} alt='Delete'/>
+                  </div>
+                </NavItem> 
+                </Nav>
+              </Jumbotron>
             );
           })}
         </div>

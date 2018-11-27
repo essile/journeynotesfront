@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Jumbotron} from 'react-bootstrap';
 import Trip from './Trip';
 import {Link} from 'react-router-dom';
+import "../cssstyles/View.css";
+
 const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
 
 class TripList extends Component {
@@ -10,15 +12,13 @@ class TripList extends Component {
   
 
   render() {
-    var styles={
-      dropshadow: "4px"
-    }
+
     console.log("moikka");
     console.log(this.props.trips);
     
     
     var allTrips = this.props.trips.map(trip => (
-      <Jumbotron style={styles} key={trip.tripId}>
+      <Jumbotron className="jumbo" key={trip.tripId}>
       <Link to={"/TripView/" + trip.tripId} >  
       {/* <img src={photoUrl + trip.mainPhotoSmallUrl}alt="trip main" /> */}
       <img src="https://media.giphy.com/media/1Ahh3bPFpdAloVz4MV/giphy.gif" alt="trip main" />
