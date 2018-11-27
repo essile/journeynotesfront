@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Nav, NavItem } from "react-bootstrap";
-import { FormGroup, ControlLabel, FormControl, Jumbotron, } from "react-bootstrap";
+import { FormGroup, ControlLabel, FormControl, Jumbotron, Button, Form } from "react-bootstrap";
 import { AddTrip } from "../ServiceClient";
+import plusbutton from "../images/plusbutton.png";
+import '../cssstyles/Form.css';
 
 class Trip extends Component {
   constructor(props) {
@@ -69,49 +71,58 @@ class Trip extends Component {
   render() {
     return (
       <div>
-        <Jumbotron className="jumbo">
           <h2>Create a new trip</h2>
-        </Jumbotron>
-        <form>
+          <Jumbotron className='jumbo'>
+        <form className="form">
           <FormGroup>
-            <ControlLabel>Give a headline:</ControlLabel>
-            <FormControl
+            <ControlLabel className='formtext'>Give a headline:</ControlLabel>
+            <FormControl  className='formtextarea'
               type="text"
               value={this.state.headline}
               placeholder="I guess we are not in Kansas anymore"
               onChange={this.headlineSet}
             />
-            <ControlLabel>Give a description:</ControlLabel>
-            <FormControl
+            <ControlLabel className='formtext'>Give a description:</ControlLabel>
+            <FormControl className='formtextarea'
               type="text"
               value={this.state.description}
               placeholder="Went to ride a hurricane"
               onChange={this.descriptionSet}
             />
-            <FormControl
+            <FormControl className='formtextarea'
               type="file"
               label="File"
               help="Example block-level help text here."
               onChange={this.handleImage}
             />
+            <Form inline>
             <FormControl
               type="date"
               label="Start Date"
               onChange={this.startDate}
             />
-            <FormControl
+            <FormControl className='formtextarea'
               type="date"
               label="End Date"
               onChange={this.endDate}
             />
+          </Form>
           </FormGroup>
-          <Nav bsStyle="pills">
+{/*           <Nav bsStyle="pills">
             {/* <NavItem href="/CreatePitstopView" active onClick={this.newTrip}> */}
-            <NavItem active onClick={this.newTrip}>
+           {/*}<NavItem active onClick={this.newTrip}>
               Create
-            </NavItem>
+            </NavItem> 
+          </Nav>*/}
+          <Nav>
+            <NavItem href="/CreatePitstopView" active onClick={this.newTrip}>
+            <div>
+              <img className='plus' src={plusbutton} alt='Create'/>
+            </div>
+            </NavItem> 
           </Nav>
         </form>
+        </Jumbotron>
       </div>
     );
   }

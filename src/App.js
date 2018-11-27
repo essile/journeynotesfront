@@ -5,6 +5,8 @@ import { Switch, Route } from "react-router-dom";
 import FirstView from "./views/FirstView";
 import CreateTripView from "./views/CreateTripView";
 import TripView from "./views/TripView";
+import { Col } from "react-bootstrap";
+
 
 class App extends Component {
   constructor() {
@@ -53,8 +55,10 @@ class App extends Component {
   render() {
     let logoutButton = this.createLogoutButton();
     return (
-      <div className="App">     
-        <h1 className="App-title">Journey Notes</h1>
+      <div className="App">
+      <Col xs={12} sm={8} md={6}>     
+        <h1>journey</h1> 
+        <h1>notes</h1>
         <Switch>
           <Route exact path="/" render={() => this.renderFirstView()} />
           <Route path="/startSession" render={({ history }) => this.startSession(history)}/>
@@ -62,6 +66,7 @@ class App extends Component {
           <Route path="/TripView/:tripId" component={TripView} />
         </Switch>      
         {logoutButton}
+        </Col>
       </div>
     );
   }

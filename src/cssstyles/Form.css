@@ -1,0 +1,21 @@
+.form {
+    padding-top: 2em;
+    color: #4a344f;
+    width: 75%;
+    margin: auto;
+    background-color: #efe7d6;
+}
+.formtext {
+    padding: 1em;
+}
+.plus {
+    height: 5em;
+    
+}
+.jumbo{
+    margin: 2em;
+    background-color: #efe7d6;
+}
+.formtextarea {
+    padding: 1em;
+}
