@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { GetTripWithPitstops, DeleteTrip, DeletePitstop } from "../ServiceClient";
-import { Button, Jumbotron, Nav, NavItem, Row, Col, Grid } from "react-bootstrap";
+import { Jumbotron, Nav, NavItem } from "react-bootstrap";
 import deletebutton from "../images/deletebutton.png";
 import editbutton from "../images/editbutton.png";
 import '../cssstyles/View.css';
@@ -52,8 +52,7 @@ class Trip extends Component {
 
 
           <Nav>
-                {/* Tähän on siis tulossa edit */}
-                <NavItem  href="/FirstView" active onClick={this.handleTripDelete}>
+                <NavItem  href={`/EditTripView/${this.props.match.params.tripId}`} active>
                   <div>
                     <img className='plus' src={editbutton} alt='Edit'/>
                   </div>
@@ -73,10 +72,7 @@ class Trip extends Component {
               <Jumbotron className="jumbo">
                 <h3>{pitstop.title}</h3>
                 <p>{pitstop.note}</p>
-                <img src={photoUrl + pitstop.photoMediumUrl} alt="pitstop" />
-{/*                 <Button bsStyle="danger" onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
-                  Delete pitstop
-                </Button> */}
+                <img src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/1Ahh3bPFpdAloVz4MV/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="trip main" />
                 <Nav>
                 <NavItem active onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
                   <div>
