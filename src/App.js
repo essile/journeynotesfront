@@ -50,21 +50,12 @@ class App extends Component {
 
     if (this.authService.isAuthenticated()) {
       console.log("logout button");
-<<<<<<< HEAD
-      button = (
-        <div>
-          <img className='plus' src={logoutbutton} alt='Logout'
-            onClick={() => this.authService.logout()} />
-          <h3>Logout</h3>
-        </div>
-=======
       button = (                  
       <div>
         <Image  src={logoutbutton} className='plus' alt='Logout'
          onClick={() => this.authService.logout()}/>
          <h3>Logout</h3>
       </div>
->>>>>>> master
       );
     }
     return button;
@@ -74,32 +65,6 @@ class App extends Component {
     let logoutButton = this.createLogoutButton();
     return (
       <div>
-<<<<<<< HEAD
-        <Navbar className="menu">
-        <div><ChangeLanguage/></div>
-          <Navbar.Brand>
-            <img src={menu} alt='Menu' className="menuicon" />
-          </Navbar.Brand>
-          <NavDropdown >
-            <MenuItem>Action</MenuItem>
-          </NavDropdown>
-        </Navbar>
-
-        <div className="App">
-          <Col xs={12} sm={8} md={6}>
-            <h1>journey</h1>
-            <h1>notes</h1>
-            <Switch>
-              <Route exact path="/" render={() => this.renderFirstView()} />
-              <Route path="/startSession" render={({ history }) => this.startSession(history)} />
-              <Route path="/FirstView" component={FirstView} />
-              <Route path="/CreateTripView" component={CreateTripView} />
-              <Route path="/TripView/:tripId" component={TripView} />
-              <Route path="/EditTripView/:tripId" component={EditTripView} />
-            </Switch>
-            {logoutButton}
-          </Col>
-=======
        <Navbar className="menu">
        <Navbar.Brand>
         
@@ -135,7 +100,6 @@ class App extends Component {
         </Switch>  
         {logoutButton}
         </Col>
->>>>>>> master
         </div>
       </div>
     );
