@@ -9,14 +9,15 @@ import { Col, Navbar, NavDropdown, MenuItem, Image, Button, Collapse, Well } fro
 import EditTripView from "./views/EditTripView";
 import logoutbutton from "./images/logoutbutton.png";
 import menu from "./images/menu.png";
-
+import i18n from "./i18n";
+import GoogleApiWrapper from "./mapstuff/MapContainer"
 
 
 class App extends Component {
   constructor() {
     super();
     this.authService = new AuthService();
-    this.state = {open:false}
+    this.state = { open: false }
   }
 
   renderFirstView() {
@@ -67,41 +68,42 @@ class App extends Component {
     let logoutButton = this.createLogoutButton();
     return (
       <div>
-       <Navbar className="menu">
-       <Navbar.Brand>
-        
-        <Image src={menu} alt='Menu' className="menuicon" responsive/>
-      </Navbar.Brand>
-        <NavDropdown >
-          <MenuItem>Action</MenuItem>
-        </NavDropdown>
-        <div>
-        <Button onClick={() => this.setState({ open: !this.state.open })}>
-          Open Map
-        </Button>
-        <Collapse in={this.state.open}>
+        <Navbar className="menu">
+          <Navbar.Brand>
+
+            <Image src={menu} alt='Menu' className="menuicon" responsive />
+          </Navbar.Brand>
+          <NavDropdown >
+            <MenuItem>Action</MenuItem>
+          </NavDropdown>
           <div>
-            <Well>
-              Collapse tässä terve
-            </Well>
+            <ChangeLanguage />
+            <Button onClick={() => this.setState({ open: !this.state.open })}>
+              Open Map
+        </Button>
+            <Collapse in={this.state.open}>
+              <div>
+                <Well>
+                  {/* <GoogleApiWrapper /> */}
+                </Well>
+              </div>
+            </Collapse>
           </div>
-        </Collapse>
-        </div>
-      </Navbar> 
-      <div className="App">
-      <Col xs={12} sm={8} md={6}>     
-        <h1>journey</h1> 
-        <h1>notes</h1>
-        <Switch>
-          <Route exact path="/" render={() => this.renderFirstView()} />
-          <Route path="/startSession" render={({ history }) => this.startSession(history)}/>
-          <Route path="/FirstView" component={FirstView}/>
-          <Route path="/CreateTripView" component={CreateTripView} />
-          <Route path="/TripView/:tripId" component={TripView} />
-          <Route path="/EditTripView/:tripId" component={EditTripView} />
-        </Switch>  
-        {logoutButton}
-        </Col>
+        </Navbar>
+        <div className="App">
+          <Col xs={12} sm={8} md={6}>
+            <h1>journey</h1>
+            <h1>notes</h1>
+            <Switch>
+              <Route exact path="/" render={() => this.renderFirstView()} />
+              <Route path="/startSession" render={({ history }) => this.startSession(history)} />
+              <Route path="/FirstView" component={FirstView} />
+              <Route path="/CreateTripView" component={CreateTripView} />
+              <Route path="/TripView/:tripId" component={TripView} />
+              <Route path="/EditTripView/:tripId" component={EditTripView} />
+            </Switch>
+            {logoutButton}
+          </Col>
         </div>
       </div>
     );
@@ -109,3 +111,17 @@ class App extends Component {
 }
 
 export default App;
+
+function ChangeLanguage() {
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('language', lng);
+  }
+  return (
+    <div>
+      <button onClick={() => changeLanguage('en')}>TRY IT</button>
+      <button onClick={() => changeLanguage('fi')}>TESTAA</button>
+    </div>
+  );
+};
