@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import FirstView from "./views/FirstView";
 import CreateTripView from "./views/CreateTripView";
 import TripView from "./views/TripView";
-import { Col, Navbar, NavDropdown, MenuItem, Image } from "react-bootstrap";
+import { Col, Navbar, NavDropdown, MenuItem, Image, Button, Collapse, Well } from "react-bootstrap";
 import EditTripView from "./views/EditTripView";
 import logoutbutton from "./images/logoutbutton.png";
 import menu from "./images/menu.png";
@@ -16,6 +16,7 @@ class App extends Component {
   constructor() {
     super();
     this.authService = new AuthService();
+    this.state = {open:false}
   }
 
   renderFirstView() {
@@ -72,6 +73,18 @@ class App extends Component {
         <NavDropdown >
           <MenuItem>Action</MenuItem>
         </NavDropdown>
+        <div>
+        <Button onClick={() => this.setState({ open: !this.state.open })}>
+          Open Map
+        </Button>
+        <Collapse in={this.state.open}>
+          <div>
+            <Well>
+              Collapse tässä terve
+            </Well>
+          </div>
+        </Collapse>
+        </div>
       </Navbar> 
       <div className="App">
       <Col xs={12} sm={8} md={6}>     
