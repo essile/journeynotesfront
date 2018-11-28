@@ -5,10 +5,11 @@ import { Switch, Route } from "react-router-dom";
 import FirstView from "./views/FirstView";
 import CreateTripView from "./views/CreateTripView";
 import TripView from "./views/TripView";
-import { Col, Navbar, NavDropdown, MenuItem, Image, Button, Collapse, Well } from "react-bootstrap";
+import { Col, Navbar, NavItem, Nav, MenuItem, Image, Button, Collapse, Well } from "react-bootstrap";
 import EditTripView from "./views/EditTripView";
 import logoutbutton from "./images/logoutbutton.png";
 import menu from "./images/menu.png";
+import viewmapbutton from "./images/viewmapbutton.png";
 
 
 
@@ -67,16 +68,21 @@ class App extends Component {
     let logoutButton = this.createLogoutButton();
     return (
       <div>
-       <Navbar className="menu">
-       <Navbar.Brand>
-        
-        <Image src={menu} alt='Menu' className="menuicon" responsive/>
-      </Navbar.Brand>
-        <NavDropdown >
-          <MenuItem>Action</MenuItem>
-        </NavDropdown>
-        <div>
-        <Button onClick={() => this.setState({ open: !this.state.open })}>
+      <Nav>
+        <NavItem>
+        <Button className="button">
+        <Image  src={menu} className='menuicon' alt='Menu' responsive/>
+         Menu
+         </Button>
+
+        </NavItem>
+         <Navbar.Header>
+        <h1>journey</h1> 
+        <h1>notes</h1>
+        </Navbar.Header>
+
+        <Button className="button" onClick={() => this.setState({ open: !this.state.open })}>
+        <Image src={viewmapbutton} alt='View Map' className="menuicon" responsive/>
           Open Map
         </Button>
         <Collapse in={this.state.open}>
@@ -86,8 +92,9 @@ class App extends Component {
             </Well>
           </div>
         </Collapse>
-        </div>
-      </Navbar> 
+        </Nav>
+        
+
       <div className="App">
       <Col xs={12} sm={8} md={6}>     
         <h1>journey</h1> 

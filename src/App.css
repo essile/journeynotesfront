@@ -45,6 +45,16 @@
 .menuicon {
   height:5em;
 }
+.menu {
+  background-color: #282c34;
+  min-height: 1vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+  font-size: calc(10px + 2vmin);
+  color: white; 
+}
 
 @keyframes App-logo-spin {
   from {
