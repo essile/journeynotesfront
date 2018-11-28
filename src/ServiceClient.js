@@ -44,7 +44,7 @@ export function AddPitstop(pitstop, callback) {
   data.append("action", "POST");
   data.append("title", pitstop.title);
   data.append("note", pitstop.note);
-  data.append("date", pitstop.date);
+  data.append("pitstopDate", pitstop.pitstopDate);
   data.append("picture", new Blob([pitstop.photo], { type: "image/jpeg" }));
   console.log(accessToken);
   console.dir(pitstop);

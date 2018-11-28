@@ -5,6 +5,13 @@
   align-items: center;
   justify-content: center;
 }
+.jumbo {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
