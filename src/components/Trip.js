@@ -25,10 +25,12 @@ class Trip extends Component {
     } else {
       tripId = this.props.match.params.tripId;
     }
+    this.interval = setInterval(() => {
     GetTripWithPitstops(tripId, response => {
       var tripPitstops = response;
       this.setState({ tripPitstops: tripPitstops });
     });
+  },2000)
   };
 
   handleTripDelete = () => {
@@ -81,7 +83,7 @@ class Trip extends Component {
                 <h5>{pitstop.pitstopDate.substring(0, 10)}</h5>
 
               </div>
-                <Image src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/52F98945Myjt0bnFKY/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="trip main" responsive />
+                <Image src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/yv10uxsLG8BLcB7Gac/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="trip main" responsive />
                 <Nav>
                 <NavItem active onClick={() => {if(window.confirm(warningMessagePitstop)) this.handlePitstopDelete(pitstop.pitstopId)}}>
                   <div>

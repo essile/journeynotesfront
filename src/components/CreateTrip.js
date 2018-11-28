@@ -22,7 +22,7 @@ class Trip extends Component {
 
 
   newTrip = event => {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState({ headline: "", description: "" });
     console.log(this.state);
 

@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import FirstView from "./views/FirstView";
 import CreateTripView from "./views/CreateTripView";
 import TripView from "./views/TripView";
-import { Col, Navbar, NavItem, Nav, MenuItem, Image, Button, Collapse, Well } from "react-bootstrap";
+import { Grid, Col, NavItem, Nav, Image, Button, Collapse, Well } from "react-bootstrap";
 import EditTripView from "./views/EditTripView";
 import logoutbutton from "./images/logoutbutton.png";
 import menu from "./images/menu.png";

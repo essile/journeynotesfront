@@ -13,22 +13,33 @@ class FirstView extends Component {
   }
 
   componentDidMount = () => {
+    this.interval=setInterval(( )=> {
       GetAllTrips(response => {
       var trips = response;
+
       this.setState({ trips: trips });
       console.log(this.state.trips);
     });
+  }, 2000)
   };
+
+  componentWillUnmount = () => {
+    clearInterval(this.interval);
+  }
 
   render() {
     console.log(this.state.trips);
 
     return (
       <div>
-        <Jumbotron className="jumbo">
+        <div>
         {/* <h2>My past adventures</h2> */}
         <h2>{i18n.t('My past adventures')}</h2>
+        </div>
+        <Jumbotron className="jumbo">
+        <div>
           <TripList trips={this.state.trips} />
+          </div>
           </Jumbotron>
           <Jumbotron className="jumbo">
           <Nav className="nav">
