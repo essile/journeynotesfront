@@ -9,6 +9,9 @@ import { Col, Navbar, NavDropdown, MenuItem, Image, Button, Collapse, Well } fro
 import EditTripView from "./views/EditTripView";
 import logoutbutton from "./images/logoutbutton.png";
 import menu from "./images/menu.png";
+import FinnishFlag from "./images/FinnishFlag.png";
+import UKflag from "./images/UKflag.png";
+import SwedishFlag from "./images/SwedishFlag.png";
 import i18n from "./i18n";
 import GoogleApiWrapper from "./mapstuff/MapContainer"
 
@@ -28,7 +31,7 @@ class App extends Component {
       this.authService.login();
       resultComponent = (
         <div>
-          <p>Redirecting to the authentication service...</p>
+          <p>{i18n.t('Redirecting auth message')}</p>
         </div>
       );
     }
@@ -41,7 +44,7 @@ class App extends Component {
     this.authService.handleAuthentication(history);
     return (
       <div>
-        <p>Starting session...</p>
+        <p>{i18n.t('Starting message')}</p>
       </div>
     );
   }
@@ -55,7 +58,7 @@ class App extends Component {
         <div>
           <Image src={logoutbutton} className='plus' alt='Logout'
             onClick={() => this.authService.logout()} />
-          <h3>Logout</h3>
+          <h3>{i18n.t('Logout')}</h3>
         </div>
       );
     }
@@ -118,8 +121,11 @@ function ChangeLanguage() {
   }
   return (
     <div>
-      <button onClick={() => changeLanguage('en')}>TRY IT</button>
-      <button onClick={() => changeLanguage('fi')}>TESTAA</button>
+      <input type="image" onClick={() => changeLanguage('fi')} src={FinnishFlag} alt="fi" />&nbsp;
+      <input type="image" onClick={() => changeLanguage('en')} src={UKflag} alt="en" />
+      <input type="image" onClick={() => changeLanguage('se')} src={SwedishFlag} alt="se" />
+      {/* <button onClick={() => changeLanguage('en')}>English</button> */}
+      {/* <button onClick={() => changeLanguage('fi')}>Suomi</button> */}
     </div>
   );
 };

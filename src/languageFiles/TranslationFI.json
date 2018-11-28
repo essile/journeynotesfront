@@ -1,3 +1,23 @@
 {
-    "My past adventures": "Aiemmat seikkailut"
+    "My past adventures": "Aiemmat matkani",
+    "Create a new pitstop": "Luo uusi etappi",
+    "Leave a note": "Kirjoita viesti",
+    "Title": "Otsikko",
+    "Give a headline": "Kirjoita otsikko",
+    "Give a description": "Kirjoita kuvaus",
+    "Placeholdertext Trip headline": "",
+    "Placeholdertext Trip description": "",
+    "Start Date": "Matka alkoi",
+    "End date": "Matka päättyi",
+    "'Create'": "Lisää",
+    "Login": "Kirjaudu",
+    "Edit": "Muokkaa",
+    "Delete": "Poista",
+    "Delete trip warning message": "Haluatko varmasti poistaa tämän matkan ja kaikki sen etapit?",
+    "Delete pitstop warning message": "Haluatko varmasti postaa tämän etapin?",
+    "Edit headline": "Muokkaa otsikkoa",
+    "Edit description": "Muokkaa kuvausta",
+    "Done": "Valmis",
+    "Redirecting auth message": "Uudelleenohjataan autentikaatiopalveluun...",
+    "Starting message": "Ladataan..."
 }

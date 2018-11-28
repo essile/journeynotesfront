@@ -1,6 +1,7 @@
 import i18n from "i18next";
 import { reactI18nextModule } from "react-i18next";
 import TranslationEN from './languageFiles/TranslationEN';
+import TranslationSE from './languageFiles/TranslationSE';
 import TranslationFI from './languageFiles/TranslationFI';
 
 const resources = {
@@ -9,6 +10,9 @@ const resources = {
     },
     fi: {
         translation: TranslationFI
+    },
+    se: {
+        translation: TranslationSE
     }
 };
 
