@@ -99,15 +99,6 @@ export function EditTrip(trip) {
 
   console.log("EditTrip, trip", trip);
 
-  // const data = new FormData();
-  // data.append("action", "PUT");
-  // data.append("headline", trip.headline);
-  // data.append("description", trip.description);
-  // data.append("startDate", trip.startDate);
-  // data.append("endDate", trip.endDate);
-  // data.append("MainPhotoUrl", trip.MainPhotoUrl);
-  // data.append("MainPhotoSmallUrl", trip.MainPhotoSmallUrl);
-
   console.log("edittrip-funktiosta:" + accessToken);
   return Axios.put(localhost + '/api/Trips/'+ trip.tripId, trip, {headers})
   .then(response=> {

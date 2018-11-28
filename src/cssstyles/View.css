@@ -5,10 +5,7 @@
 }
 .jumbo{
     background-color: #efe7d6;
-    margin: 2em;
     text-align: center;
-/*     display: flex;
-    flex-wrap: nowrap; */
     align-items: center;
     justify-content: center;
 } 
@@ -21,4 +18,11 @@
 
 .tripView {
     background-color: darkgrey;
+}
+
+.transparentJumbo {
+    background-color: transparent;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }

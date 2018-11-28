@@ -32,15 +32,6 @@ class FirstView extends Component {
 
     return (
       <div>
-        <div>
-        {/* <h2>My past adventures</h2> */}
-        <h2>{i18n.t('My past adventures')}</h2>
-        </div>
-        <Jumbotron className="jumbo">
-        <div>
-          <TripList trips={this.state.trips} />
-          </div>
-          </Jumbotron>
           <Jumbotron className="jumbo">
           <Nav className="nav">
             <NavItem href="/CreateTripView" active onClick={this.newTrip}>
@@ -51,6 +42,14 @@ class FirstView extends Component {
             </NavItem>
           </Nav>
         </Jumbotron>
+        <div>
+        <h2>{i18n.t('My past adventures')}</h2>
+        </div>
+        <Jumbotron className="transparentJumbo">
+        <div>
+          <TripList trips={this.state.trips} />
+          </div>
+          </Jumbotron>
         
       </div>
     );
