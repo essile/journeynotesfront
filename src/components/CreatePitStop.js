@@ -4,6 +4,7 @@ import {AddPitstop, GetTripWithPitstops} from '../ServiceClient';
 import '../cssstyles/Form.css'
 import plusbutton from "../images/plusbutton.png";
 import PitStopSearchComponent from "../mapstuff/PitStopSearchComponent";
+import i18n from "../i18n";
 
 
 class CreatePitStop extends Component {
@@ -74,11 +75,10 @@ class CreatePitStop extends Component {
     return (
       <div>
         <Jumbotron className="jumbo">
-        <h2>Create a new pitstop</h2>
-        
+        <h2>{i18n.t('Create a new pitstop')}</h2>
         <form className="form">
         <FormGroup>
-          <ControlLabel className="formtext">Title:</ControlLabel>
+          <ControlLabel className="formtext">{i18n.t('Title')}:</ControlLabel>
           <FormControl
             type="text"
             value={this.state.title}
@@ -86,7 +86,7 @@ class CreatePitStop extends Component {
             onChange={this.titleSet}
             className="formtextarea"
           />
-          <ControlLabel className="formtext">Leave a note:</ControlLabel>
+          <ControlLabel className="formtext">{i18n.t('Leave a note')}:</ControlLabel>
           <FormControl
             type="text"
             value={this.state.note}

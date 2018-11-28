@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Nav, NavItem } from "react-bootstrap";
+import i18n from "../i18n";
 
 class Login extends Component {
  
@@ -8,7 +9,7 @@ class Login extends Component {
       <div>
         <Nav bsStyle="pills">
           <NavItem
-            href="/FirstView" active>Login
+            href="/FirstView" active>{i18n.t('Login')}
           </NavItem>
         </Nav>
       </div>
