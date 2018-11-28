@@ -4,9 +4,12 @@ import { Image, Jumbotron, Nav, NavItem } from "react-bootstrap";
 import deletebutton from "../images/deletebutton.png";
 import editbutton from "../images/editbutton.png";
 import '../cssstyles/View.css';
+import i18n from "../i18n";
 
 
 const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
+const warningMessageTrip = i18n.t('Delete trip warning message');
+const warningMessagePitstop = i18n.t('Delete pitstop warning message');
 
 class Trip extends Component {
   constructor(props) {
@@ -22,10 +25,12 @@ class Trip extends Component {
     } else {
       tripId = this.props.match.params.tripId;
     }
+    this.interval = setInterval(() => {
     GetTripWithPitstops(tripId, response => {
       var tripPitstops = response;
       this.setState({ tripPitstops: tripPitstops });
     });
+  },2000)
   };
 
   handleTripDelete = () => {
@@ -56,12 +61,12 @@ class Trip extends Component {
           <Nav>
                 <NavItem  href={`/EditTripView/${this.props.match.params.tripId}`} active>
                   <div>
-                    <Image className='plus' src={editbutton} alt='Edit' responsive/>
+                    <Image className='plus' src={editbutton} alt={i18n.t('Edit')} responsive/>
                   </div>
                 </NavItem> 
-              <NavItem href="/FirstView" active onClick={() => {if(window.confirm("Are you sure you want to delete this trip and all its pitstops?")) this.handleTripDelete()}}>
+              <NavItem href="/FirstView" active onClick={() => {if(window.confirm(warningMessageTrip)) this.handleTripDelete()}}>
                   <div>
-                    <Image className='plus' src={deletebutton} alt='Delete' responsive/>
+                    <Image className='plus' src={deletebutton} alt={i18n.t('Delete')} responsive/>
                   </div>
                 </NavItem> 
               </Nav>
@@ -78,11 +83,11 @@ class Trip extends Component {
                 <h5>{pitstop.pitstopDate.substring(0, 10)}</h5>
 
               </div>
-                <Image src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/52F98945Myjt0bnFKY/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="trip main" responsive />
+                <Image src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/yv10uxsLG8BLcB7Gac/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="trip main" responsive />
                 <Nav>
-                <NavItem active onClick={() => {if(window.confirm('Are you sure you want to delete this pitstop?')) this.handlePitstopDelete(pitstop.pitstopId)}}>
+                <NavItem active onClick={() => {if(window.confirm(warningMessagePitstop)) this.handlePitstopDelete(pitstop.pitstopId)}}>
                   <div>
-                    <Image className='plus' src={deletebutton} alt='Delete' responsive/>
+                    <Image className='plus' src={deletebutton} alt={i18n.t('Delete')} responsive/>
                   </div>
                 </NavItem> 
                 </Nav>

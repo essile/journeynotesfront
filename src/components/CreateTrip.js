@@ -5,6 +5,7 @@ import { AddTrip } from "../ServiceClient";
 import plusbutton from "../images/plusbutton.png";
 import '../cssstyles/Form.css';
 import SearchComponent from "../mapstuff/SearchComponent";
+import i18n from "../i18n";
 
 class Trip extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class Trip extends Component {
 
 
   newTrip = event => {
-    event.preventDefault();
+    // event.preventDefault();
     this.setState({ headline: "", description: "" });
     console.log(this.state);
 
@@ -84,18 +85,18 @@ class Trip extends Component {
           <Jumbotron className='jumbo'>
         <form className="form">
           <FormGroup>
-            <ControlLabel className='formtext'>Give a headline:</ControlLabel>
+            <ControlLabel className='formtext'>{i18n.t('Give a headline')}:</ControlLabel>
             <FormControl  className='formtextarea'
               type="text"
               value={this.state.headline}
-              placeholder="I guess we are not in Kansas anymore"
+              placeholder={i18n.t('Placeholdertext Trip headline')}
               onChange={this.headlineSet}
             />
-            <ControlLabel className='formtext'>Give a description:</ControlLabel>
+            <ControlLabel className='formtext'>{i18n.t('Give a description')}:</ControlLabel>
             <FormControl className='formtextarea'
               type="text"
               value={this.state.description}
-              placeholder="Went to ride a hurricane"
+              placeholder={i18n.t('Placeholdertext Trip description')}
               onChange={this.descriptionSet}
             />
             <FormControl className='formtextarea'
@@ -107,12 +108,12 @@ class Trip extends Component {
             <Form inline>
             <FormControl
               type="date"
-              label="Start Date"
+              label={i18n.t('Start date')}
               onChange={this.startDate}
             />
             <FormControl className='formtextarea'
               type="date"
-              label="End Date"
+              label={i18n.t('End date')}
               onChange={this.endDate}
             />
           </Form>
@@ -121,7 +122,7 @@ class Trip extends Component {
           <Nav>
             <NavItem href="/FirstView" active onClick={this.newTrip}>
             <div>
-              <img className='plus' src={plusbutton} alt='Create'/>
+              <img className='plus' src={plusbutton} alt={i18n.t('Create')}/>
             </div>
             </NavItem> 
           </Nav>

@@ -8,6 +8,7 @@ import {
   Nav,
   NavItem
 } from "react-bootstrap";
+import i18n from "../i18n";
 
 class TripEditor extends Component {
   constructor(props) {
@@ -82,7 +83,7 @@ class TripEditor extends Component {
           <Jumbotron className="jumbo">
             <form className="form">
               <FormGroup>
-                <ControlLabel className="formtext">Edit headline:</ControlLabel>
+                <ControlLabel className="formtext">{i18n.t('Edit headline')}:</ControlLabel>
                 <FormControl
                   defaultValue={tripPitstop.headline}
                   className="formtextarea"
@@ -91,7 +92,7 @@ class TripEditor extends Component {
                   onChange={this.headlineSet}
                 />
                 <ControlLabel className="formtext">
-                  Edit description:
+                  {i18n.t('Edit description')}:
                 </ControlLabel>
                 <FormControl
                   defaultValue={tripPitstop.description}
@@ -126,7 +127,7 @@ class TripEditor extends Component {
               </FormGroup>   
               <Nav>
               <NavItem href="/FirstView" active onClick={this.handleTripEdit}>
-              Done
+              {i18n.t('Done')}
               </NavItem>
               </Nav>       
             </form>        

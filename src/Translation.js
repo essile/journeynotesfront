@@ -1,7 +1,6 @@
 import React from 'react';
 import {withNamespaces} from 'react-i18next';
 import App from './App';
-import "./App.css";
 
 function Translation ({t}) {
     return (
