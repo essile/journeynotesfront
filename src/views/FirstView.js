@@ -14,14 +14,14 @@ class FirstView extends Component {
   }
 
   componentDidMount = () => {
-    //this.interval=setInterval(( )=> {
+    this.interval=setInterval(( )=> {
       GetAllTrips(response => {
       var trips = response;
 
       this.setState({ trips: trips });
       console.log(this.state.trips);
     });
- // }, 2000)
+  }, 2000)
   };
 
   componentWillUnmount = () => {
@@ -33,19 +33,8 @@ class FirstView extends Component {
 
     return (
       <div>
-        <div>
-        {/* <h2>My past adventures</h2> */}
-        <h2>{i18n.t('My past adventures')}</h2>
-        </div>
-        <Jumbotron>
-          <GoogleApiWrapper trips={this.state.trips}/>
-        </Jumbotron>
-        <Jumbotron className="jumbo">
-        <div>
-          <TripList trips={this.state.trips} />
-          </div>
-          </Jumbotron>
           <Jumbotron className="jumbo">
+          <GoogleApiWrapper trips={this.state.trips}/>
           <Nav className="nav">
             <NavItem href="/CreateTripView" active onClick={this.newTrip}>
               Create new Trip
@@ -55,6 +44,14 @@ class FirstView extends Component {
             </NavItem>
           </Nav>
         </Jumbotron>
+        <div>
+        <h2>{i18n.t('My past adventures')}</h2>
+        </div>
+        <Jumbotron className="transparentJumbo">
+        <div>
+          <TripList trips={this.state.trips} />
+          </div>
+          </Jumbotron>
         
       </div>
     );

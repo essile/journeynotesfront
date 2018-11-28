@@ -26,7 +26,6 @@ class Trip extends Component {
     this.setState({ headline: "", description: "" });
     console.log(this.state);
 
-    // tässä vienti serviceclientin funktioon
     AddTrip(this.state, function (response) {
       console.log("Worked, answer from backend:");
       console.dir(response.data);
