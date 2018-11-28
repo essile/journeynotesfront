@@ -71,10 +71,10 @@ class App extends Component {
     return (
       <div>
       <Nav>
-        <NavItem>
+        <NavItem href='/FirstView'>
         <Button className="button">
         <Image  src={menu} className='menuicon' alt='Menu' responsive/>
-         Menu
+         Home
          </Button>
 
         </NavItem>
