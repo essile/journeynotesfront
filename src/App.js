@@ -82,7 +82,7 @@ class App extends Component {
             <Collapse in={this.state.open}>
               <div>
                 <Well>
-                  <GoogleApiWrapper />
+                  {/* <GoogleApiWrapper /> */}
                 </Well>
               </div>
             </Collapse>

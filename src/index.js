@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import "./App.css";
 import './i18n';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -9,7 +10,7 @@ import Translation from './Translation';
 
 ReactDOM.render(
     <BrowserRouter>
-        <Translation />
+        <Translation/> 
         {/* This Translation component is between index and App
         so that you can change the language of the site */}
     </BrowserRouter>,

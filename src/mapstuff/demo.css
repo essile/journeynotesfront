@@ -1,4 +1,4 @@
-html {
+/* html {
     background-color: #fff;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
@@ -6,18 +6,18 @@ html {
     height: 100%;
     overflow-x: hidden;
     text-align: center;
-  }
+  } */
   
-  body, #root, .page-wrapper {
+  /* body, #root, .page-wrapper {
     height: 100%;
     background-color: #fcfcfc;
-  }
+  } */
   
   .Demo__map-maker-icon {
     color: #FD6C6C;
   }
   
-  .Demo__github-icon {
+  /* .Demo__github-icon {
     font-size: 24px;
   }
   
@@ -30,16 +30,16 @@ html {
   .Demo__github-link:active {
     color: #4078c0;
     text-decoration: none;
-  }
+  } */
   
   .Demo__suggestion-icon {
     margin-right: 8px;
   }
   
   .Demo__search-bar-container {
-    width: 70%;
+    width: 60%;
     max-width: 500px;
-    margin: 40px auto 0;
+    margin: 20px auto 0;
   }
   
   .Demo__search-input-container {
@@ -118,7 +118,7 @@ html {
     color: #222222;
   }
   
-  @media (max-width: 480px) {
+  /* @media (max-width: 480px) {
     .autocomplete-container {
       text-align: left;
     }
@@ -134,7 +134,7 @@ html {
       -ms-animation: fadein .75s;
       -o-animation: fadein .75s;
       animation: fadein .75s;
-    }
+    } */
   
     .btn {
       margin-top: 1.5rem;
@@ -147,4 +147,4 @@ html {
       margin-top: 5rem;
       width: 50%;
     }
-  }
+  
