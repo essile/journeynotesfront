@@ -51,9 +51,11 @@ class App extends Component {
       console.log("logout button");
       button = (                  
       <div>
+      <button className="button">
         <Image  src={logoutbutton} className='plus' alt='Logout'
          onClick={() => this.authService.logout()}/>
          <h3>Logout</h3>
+         </button>
       </div>
       );
     }
