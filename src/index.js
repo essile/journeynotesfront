@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import "./App.css";
 import './i18n';
-import App from './App';
+// import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
 import Translation from './Translation';

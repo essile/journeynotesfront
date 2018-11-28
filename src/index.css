@@ -29,11 +29,12 @@ h2 {
   font-family: 'Bevan',"Segoe UI", "Roboto", sans-serif;
   color: #4a344f;
   font-size: 2em;
+  margin-top: 2em; 
 }
 h3 {
   font-family: 'Bevan',"Segoe UI", "Roboto", sans-serif;
   color: #4a344f;
-  font-size: 1.5em;  
+  font-size: 1.5em; 
 }
 p {
   color: #4a344f;

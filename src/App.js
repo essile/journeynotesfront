@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import FirstView from "./views/FirstView";
 import CreateTripView from "./views/CreateTripView";
 import TripView from "./views/TripView";
-import { Col, Navbar, NavItem, Nav, MenuItem, Image, Button, Collapse, Well } from "react-bootstrap";
+import { Grid, Col, NavItem, Nav, Image, Button, Collapse, Well } from "react-bootstrap";
 import EditTripView from "./views/EditTripView";
 import logoutbutton from "./images/logoutbutton.png";
 import menu from "./images/menu.png";
@@ -78,10 +78,6 @@ class App extends Component {
          </Button>
 
         </NavItem>
-         <Navbar.Header>
-        <h1>journey</h1> 
-        <h1>notes</h1>
-        </Navbar.Header>
 
         <Button className="button" onClick={() => this.setState({ open: !this.state.open })}>
         <Image src={viewmapbutton} alt='View Map' className="menuicon" responsive/>
@@ -106,6 +102,7 @@ class App extends Component {
         
 
       <div className="App">
+      <Grid>
       <Col xs={12} sm={10} md={8}>     
         <h1>journey</h1> 
         <h1>notes</h1>
@@ -119,6 +116,7 @@ class App extends Component {
         </Switch>  
         {logoutButton}
         </Col>
+        </Grid>
         </div>
       </div>
     );
