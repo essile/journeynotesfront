@@ -54,9 +54,9 @@ class CreatePitStop extends Component {
     this.setState({ note: e.target.value });
     console.log("note changed");
   };
-  dateSet = (e) => {
+  pitstopDate = (e) => {
     console.log(e.target.value);
-    this.setState({ date: e.target.value })
+    this.setState({ pitstopDate: e.target.value })
   }
 
   placeSet = (coord) => {
@@ -104,7 +104,7 @@ class CreatePitStop extends Component {
             <FormControl
               type="date"
               label="Date"
-              onChange={this.dateSet}
+              onChange={this.pitstopDate}
               className="formtextarea"
             />
           </FormGroup>

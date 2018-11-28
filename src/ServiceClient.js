@@ -45,7 +45,7 @@ export function AddPitstop(pitstop, callback) {
   data.append("action", "POST");
   data.append("title", pitstop.title);
   data.append("note", pitstop.note);
-  data.append("date", pitstop.date);
+  data.append("pitstopDate", pitstop.pitstopDate);
   data.append("picture", new Blob([pitstop.photo], { type: "image/jpeg" }));
   data.append("pitstopPosition", pitstop.pitstopPosition)
   console.log(accessToken);
@@ -65,7 +65,7 @@ export function GetTripWithPitstops(tripId, callback) {
   
   // const {getAccessToken} = this.props.auth;
   const headers = { 'Authorization': `Bearer ${accessToken}`};
-  console.log(headers);
+  console.log("GetTripWithPitstopsista headers: ", headers);
   Axios.get(localhost + "/api/Trips/" + tripId, { headers }).then(response => {
     callback(response.data);
   });
@@ -85,7 +85,8 @@ export function DeletePitstop(tripId, pitstopId) {
   const accessToken = sessionStorage.getItem("access_token");
   const headers = { 'Authorization': `Bearer ${accessToken}`};
   console.log("delete-funktiosta:" + accessToken);
-  return Axios.delete(localhost + '/api/Trips/'+ tripId + "/" + pitstopId, {headers})
+  console.log("headers delete-funktiosta: ", headers);
+  return Axios.delete(localhost + '/api/Pitstops/'+ tripId + "/" + pitstopId, {headers})
   .then(response=>{
       console.log("pitstop poistettu");
       console.dir(response);

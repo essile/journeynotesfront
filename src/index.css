@@ -12,6 +12,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-color: #b9ecdd;
+  background-attachment: fixed;
 }
 
 code {

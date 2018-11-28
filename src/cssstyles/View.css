@@ -6,7 +6,11 @@
 .jumbo{
     background-color: #efe7d6;
     margin: 2em;
-    align-content: center;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 } 
 .nav {
     display: flex;
