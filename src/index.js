@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './i18n';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
+import Translation from './Translation';
 
 ReactDOM.render(
     <BrowserRouter>
-        <App />
+        <Translation />
     </BrowserRouter>,
 document.getElementById('root'));
 
