@@ -4,6 +4,7 @@ import { FormGroup, ControlLabel, FormControl, Jumbotron, Form } from "react-boo
 import { AddTrip } from "../ServiceClient";
 import plusbutton from "../images/plusbutton.png";
 import '../cssstyles/Form.css';
+import SearchComponent from "../mapstuff/SearchComponent";
 
 class Trip extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class Trip extends Component {
       photo: "",
       startDate: "",
       endDate: "",
+      position: "",
     };
   }
 
@@ -49,6 +51,13 @@ class Trip extends Component {
   endDate = (e) => {
     console.log(e.target.value);
     this.setState({ endDate: e.target.value })
+  }
+
+  place = (coord) => {
+    console.log("from place: " + coord);
+    console.log("parsettu" + JSON.parse(coord))
+    this.setState({position: JSON.parse(coord)})
+    console.log(this.state)
   }
 
   handleImage = (e) => {
@@ -108,6 +117,7 @@ class Trip extends Component {
             />
           </Form>
           </FormGroup>
+          <SearchComponent onSelectPlace={this.place}/>
           <Nav>
             <NavItem href="/FirstView" active onClick={this.newTrip}>
             <div>
