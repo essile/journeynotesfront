@@ -10,6 +10,8 @@ import Translation from './Translation';
 ReactDOM.render(
     <BrowserRouter>
         <Translation />
+        {/* This Translation component is between index and App
+        so that you can change the language of the site */}
     </BrowserRouter>,
 document.getElementById('root'));
 

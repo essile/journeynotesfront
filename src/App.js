@@ -104,7 +104,8 @@ function ChangeLanguage() {
   }
   return (
           <div>
-              <button onClick={() => changeLanguage('en')}>TESTI</button>
+              <button onClick={() => changeLanguage('en')}>TRY IT</button>
+              <button onClick={() => changeLanguage('fi')}>TESTAA</button>
           </div>
   );
 };

@@ -1,11 +1,15 @@
 import i18n from "i18next";
 import { reactI18nextModule } from "react-i18next";
 import TranslationEN from './languageFiles/TranslationEN';
+import TranslationFI from './languageFiles/TranslationFI';
 
 const resources = {
     en: {
         translation: TranslationEN
     },
+    fi: {
+        translation: TranslationFI
+    }
 };
 
 i18n
