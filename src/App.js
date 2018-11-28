@@ -11,13 +11,15 @@ import logoutbutton from "./images/logoutbutton.png";
 import menu from "./images/menu.png";
 import viewmapbutton from "./images/viewmapbutton.png";
 
+import i18n from "./i18n";
+import GoogleApiWrapper from "./mapstuff/MapContainer"
 
 
 class App extends Component {
   constructor() {
     super();
     this.authService = new AuthService();
-    this.state = {open:false}
+    this.state = { open: false }
   }
 
   renderFirstView() {
@@ -87,9 +89,17 @@ class App extends Component {
         </Button>
         <Collapse in={this.state.open}>
           <div>
-            <Well>
-              Collapse tässä terve
-            </Well>
+            <ChangeLanguage />
+            <Button onClick={() => this.setState({ open: !this.state.open })}>
+              Open Map
+        </Button>
+            <Collapse in={this.state.open}>
+              <div>
+                <Well>
+                  {/* <GoogleApiWrapper /> */}
+                </Well>
+              </div>
+            </Collapse>
           </div>
         </Collapse>
         </Nav>
@@ -116,3 +126,17 @@ class App extends Component {
 }
 
 export default App;
+
+function ChangeLanguage() {
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem('language', lng);
+  }
+  return (
+    <div>
+      <button onClick={() => changeLanguage('en')}>TRY IT</button>
+      <button onClick={() => changeLanguage('fi')}>TESTAA</button>
+    </div>
+  );
+};
