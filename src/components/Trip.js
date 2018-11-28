@@ -50,7 +50,8 @@ class Trip extends Component {
         <div>
           <h2>{tripPitstop.headline}</h2>
           <p>{tripPitstop.description}</p>
-        </div>
+          <h3> 🛪 {tripPitstop.startDate.substring(0, 10)} / {tripPitstop.endDate.substring(0, 10)}</h3>
+
 
           <Nav>
                 <NavItem  href={`/EditTripView/${this.props.match.params.tripId}`} active>
@@ -64,7 +65,7 @@ class Trip extends Component {
                   </div>
                 </NavItem> 
               </Nav>
-
+        </div>
         </Jumbotron>
           {tripPitstop.pitstops.map(pitstop => {
             console.log(photoUrl + pitstop.photoMediumUrl);
@@ -74,6 +75,8 @@ class Trip extends Component {
               <div>
                 <h3>{pitstop.title}</h3>
                 <p>{pitstop.note}</p>
+                <h5>{pitstop.pitstopDate.substring(0, 10)}</h5>
+
               </div>
                 <Image src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/52F98945Myjt0bnFKY/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="trip main" responsive />
                 <Nav>

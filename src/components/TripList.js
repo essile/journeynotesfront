@@ -16,6 +16,7 @@ class TripList extends Component {
       <Image src = {(trip.mainPhotoSmallUrl === "") ? "https://media.giphy.com/media/52F98945Myjt0bnFKY/giphy.gif" : photoUrl + trip.mainPhotoSmallUrl} alt="trip main" responsive />
       <h2>{trip.headline}</h2>
       <p>{trip.description}</p>
+      <h4> 🛪 {trip.startDate.substring(0, 10)} / {trip.endDate.substring(0, 10)}</h4>
       </Link>
       </Jumbotron>
       
