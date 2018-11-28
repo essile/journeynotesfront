@@ -21,10 +21,11 @@ class TripList extends Component {
       
       ));
       return ( 
+       <div>
         <div>      
           {allTrips}   
         </div>
-        
+        </div>
       );
     }
   

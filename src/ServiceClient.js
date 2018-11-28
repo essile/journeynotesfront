@@ -24,6 +24,7 @@ export function AddTrip(trip, callback) {
   data.append("description", trip.description);
   data.append("startDate", trip.startDate);
   data.append("endDate", trip.endDate);
+  data.append("position", trip.position)
   data.append("picture", new Blob([trip.photo], { type: "image/jpeg" }));
   
   console.log(accessToken);
@@ -46,6 +47,7 @@ export function AddPitstop(pitstop, callback) {
   data.append("note", pitstop.note);
   data.append("date", pitstop.date);
   data.append("picture", new Blob([pitstop.photo], { type: "image/jpeg" }));
+  data.append("pitstopPosition", pitstop.pitstopPosition)
   console.log(accessToken);
   console.dir(pitstop);
   console.dir(data);

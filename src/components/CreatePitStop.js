@@ -3,6 +3,7 @@ import { FormGroup, ControlLabel, FormControl, Jumbotron, Nav, NavItem } from "r
 import {AddPitstop, GetTripWithPitstops} from '../ServiceClient';
 import '../cssstyles/Form.css'
 import plusbutton from "../images/plusbutton.png";
+import PitStopSearchComponent from "../mapstuff/PitStopSearchComponent";
 
 
 class CreatePitStop extends Component {
@@ -13,7 +14,8 @@ class CreatePitStop extends Component {
       note: "",
       photo: "",
       date: "",
-      tripId: ""
+      tripId: "",
+      pitstopPosition:"",
     };
   }
 
@@ -56,6 +58,13 @@ class CreatePitStop extends Component {
     console.log(e.target.value);
     this.setState({ date: e.target.value })
   }
+
+  placeSet = (coord) => {
+    this.setState({pitstopPosition: JSON.parse(coord)})
+    console.log(this.state)
+  }
+
+
   handleImage = (e) => {
     var image = e.target.files[0];
     console.dir(image);
@@ -100,6 +109,7 @@ class CreatePitStop extends Component {
             />
           </FormGroup>
           
+          <PitStopSearchComponent onSelectPitstopPlace={this.placeSet}/>
           <Nav>
             <NavItem href={`/TripView/${this.state.tripId}`} active onClick={this.newPitstop}>
                 Add
