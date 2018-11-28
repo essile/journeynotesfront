@@ -106,7 +106,7 @@ class App extends Component {
         
 
       <div className="App">
-      <Col xs={12} sm={8} md={6}>     
+      <Col xs={12} sm={10} md={8}>     
         <h1>journey</h1> 
         <h1>notes</h1>
         <Switch>
