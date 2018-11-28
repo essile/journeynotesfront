@@ -58,7 +58,7 @@ class Trip extends Component {
                     <Image className='plus' src={editbutton} alt='Edit' responsive/>
                   </div>
                 </NavItem> 
-              <NavItem href="/FirstView" active onClick={this.handleTripDelete}>
+              <NavItem href="/FirstView" active onClick={() => {if(window.confirm("Are you sure you want to delete this trip and all its pitstops?")) this.handleTripDelete()}}>
                   <div>
                     <Image className='plus' src={deletebutton} alt='Delete' responsive/>
                   </div>
@@ -77,7 +77,7 @@ class Trip extends Component {
               </div>
                 <Image src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/52F98945Myjt0bnFKY/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="trip main" responsive />
                 <Nav>
-                <NavItem active onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
+                <NavItem active onClick={() => {if(window.confirm('Are you sure you want to delete this pitstop?')) this.handlePitstopDelete(pitstop.pitstopId)}}>
                   <div>
                     <Image className='plus' src={deletebutton} alt='Delete' responsive/>
                   </div>
