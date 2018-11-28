@@ -13,7 +13,7 @@ class TripList extends Component {
       <Jumbotron className="jumbo" key={trip.tripId}>
       <Link to={"/TripView/" + trip.tripId} >  
       {/* <img src={photoUrl + trip.mainPhotoSmallUrl}alt="trip main" /> */}
-      <Image src = {(trip.mainPhotoSmallUrl === "") ? "https://media.giphy.com/media/52F98945Myjt0bnFKY/giphy.gif" : photoUrl + trip.mainPhotoSmallUrl} alt="trip main" responsive />
+      <Image src = {(trip.mainPhotoSmallUrl === "") ? "https://media.giphy.com/media/yv10uxsLG8BLcB7Gac/giphy.gif" : photoUrl + trip.mainPhotoSmallUrl} alt="trip main" responsive />
       <h2>{trip.headline}</h2>
       <p>{trip.description}</p>
       <h4> 🛪 {trip.startDate.substring(0, 10)} / {trip.endDate.substring(0, 10)}</h4>
