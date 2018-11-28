@@ -86,9 +86,9 @@ class App extends Component {
         </Button>
           <Collapse in={this.state.open}>
             <div>
-              <Button onClick={() => this.setState({ open: !this.state.open })}>
+              {/* <Button onClick={() => this.setState({ open: !this.state.open })}>
                 Open Map
-        </Button>
+        </Button> */}
               <Collapse in={this.state.open}>
                 <div>
                   <Well>
