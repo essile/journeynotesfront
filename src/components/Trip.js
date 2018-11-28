@@ -49,6 +49,7 @@ class Trip extends Component {
         <Jumbotron className="jumbo">
           <h2>{tripPitstop.headline}</h2>
           <p>{tripPitstop.description}</p>
+          <h3> 🛪 {tripPitstop.startDate.substring(0, 10)} / {tripPitstop.endDate.substring(0, 10)}</h3>
 
 
           <Nav>
@@ -72,6 +73,7 @@ class Trip extends Component {
               <Jumbotron key={tripPitstop.id} className="jumbo">
                 <h3>{pitstop.title}</h3>
                 <p>{pitstop.note}</p>
+                <h5>{pitstop.pitstopDate.substring(0, 10)}</h5>
                 <img src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/52F98945Myjt0bnFKY/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="trip main" />
                 <Nav>
                 <NavItem active onClick={() => {if(window.confirm('Are you sure you want to delete this pitstop?')) this.handlePitstopDelete(pitstop.pitstopId)}}>
