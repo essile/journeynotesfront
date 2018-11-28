@@ -14,7 +14,11 @@
 .jumbo{
     margin: 2em;
     background-color: #efe7d6;
-    align-content: center;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 .formtextarea {
     padding: 1em;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { GetTripWithPitstops, DeleteTrip, DeletePitstop } from "../ServiceClient";
-import { Jumbotron, Nav, NavItem } from "react-bootstrap";
+import { Image, Jumbotron, Nav, NavItem } from "react-bootstrap";
 import deletebutton from "../images/deletebutton.png";
 import editbutton from "../images/editbutton.png";
 import '../cssstyles/View.css';
@@ -47,19 +47,20 @@ class Trip extends Component {
       .map(tripPitstop => (
         <div key={tripPitstop.tripId}>
         <Jumbotron className="jumbo">
+        <div>
           <h2>{tripPitstop.headline}</h2>
           <p>{tripPitstop.description}</p>
-
+        </div>
 
           <Nav>
                 <NavItem  href={`/EditTripView/${this.props.match.params.tripId}`} active>
                   <div>
-                    <img className='plus' src={editbutton} alt='Edit'/>
+                    <Image className='plus' src={editbutton} alt='Edit' responsive/>
                   </div>
                 </NavItem> 
               <NavItem href="/FirstView" active onClick={this.handleTripDelete}>
                   <div>
-                    <img className='plus' src={deletebutton} alt='Delete'/>
+                    <Image className='plus' src={deletebutton} alt='Delete' responsive/>
                   </div>
                 </NavItem> 
               </Nav>
@@ -70,13 +71,15 @@ class Trip extends Component {
 
             return (
               <Jumbotron key={tripPitstop.id} className="jumbo">
+              <div>
                 <h3>{pitstop.title}</h3>
                 <p>{pitstop.note}</p>
-                <img src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/52F98945Myjt0bnFKY/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="trip main" />
+              </div>
+                <Image src = {(pitstop.photoMediumUrl === "") ? "https://media.giphy.com/media/52F98945Myjt0bnFKY/giphy.gif" : photoUrl + pitstop.photoMediumUrl} alt="trip main" responsive />
                 <Nav>
                 <NavItem active onClick={() => this.handlePitstopDelete(pitstop.pitstopId)}>
                   <div>
-                    <img className='plus' src={deletebutton} alt='Delete'/>
+                    <Image className='plus' src={deletebutton} alt='Delete' responsive/>
                   </div>
                 </NavItem> 
                 </Nav>
