@@ -5,6 +5,7 @@ import { Jumbotron, Nav, NavItem } from "react-bootstrap";
 import "../cssstyles/View.css";
 import plusbutton from "../images/plusbutton.png";
 import i18n from "../i18n";
+import GoogleApiWrapper from "../mapstuff/MapContainer"
 
 class FirstView extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class FirstView extends Component {
     return (
       <div>
           <Jumbotron className="jumbo">
+       
           <Nav className="nav">
             <NavItem href="/CreateTripView" active onClick={this.newTrip}>
               Create new Trip
@@ -50,7 +52,10 @@ class FirstView extends Component {
           <TripList trips={this.state.trips} />
           </div>
           </Jumbotron>
+        <div>
         
+           <GoogleApiWrapper trips={this.state.trips}/>
+        </div>
       </div>
     );
   }
