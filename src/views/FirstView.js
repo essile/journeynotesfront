@@ -5,6 +5,7 @@ import { Jumbotron, Nav, NavItem } from "react-bootstrap";
 import "../cssstyles/View.css";
 import plusbutton from "../images/plusbutton.png";
 import i18n from "../i18n";
+import GoogleApiWrapper from "../mapstuff/MapContainer"
 
 class FirstView extends Component {
   constructor(props) {
@@ -36,6 +37,9 @@ class FirstView extends Component {
         {/* <h2>My past adventures</h2> */}
         <h2>{i18n.t('My past adventures')}</h2>
         </div>
+        <Jumbotron>
+          <GoogleApiWrapper trips={this.state.trips}/>
+        </Jumbotron>
         <Jumbotron className="jumbo">
         <div>
           <TripList trips={this.state.trips} />
