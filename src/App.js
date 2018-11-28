@@ -5,13 +5,14 @@ import { Switch, Route } from "react-router-dom";
 import FirstView from "./views/FirstView";
 import CreateTripView from "./views/CreateTripView";
 import TripView from "./views/TripView";
-import { Col, Navbar, NavDropdown, MenuItem, Image, Button, Collapse, Well } from "react-bootstrap";
+import { Col, Navbar, NavItem, Nav, MenuItem, Image, Button, Collapse, Well } from "react-bootstrap";
 import EditTripView from "./views/EditTripView";
 import logoutbutton from "./images/logoutbutton.png";
 import menu from "./images/menu.png";
 import FinnishFlag from "./images/FinnishFlag.png";
 import UKflag from "./images/UKflag.png";
 import SwedishFlag from "./images/SwedishFlag.png";
+import viewmapbutton from "./images/viewmapbutton.png";
 import i18n from "./i18n";
 import GoogleApiWrapper from "./mapstuff/MapContainer"
 
@@ -55,11 +56,11 @@ class App extends Component {
     if (this.authService.isAuthenticated()) {
       console.log("logout button");
       button = (
-        <div>
+        <button className="button">
           <Image src={logoutbutton} className='plus' alt='Logout'
             onClick={() => this.authService.logout()} />
           <h3>{i18n.t('Logout')}</h3>
-        </div>
+        </button>
       );
     }
     return button;
@@ -69,30 +70,39 @@ class App extends Component {
     let logoutButton = this.createLogoutButton();
     return (
       <div>
-        <Navbar className="menu">
-          <Navbar.Brand>
+        <Nav>
+          <NavItem href='/FirstView'>
+            <Button className="button">
+              <Image src={menu} className='menuicon' alt='Menu' responsive />
+              Home
+         </Button>
 
-            <Image src={menu} alt='Menu' className="menuicon" responsive />
-          </Navbar.Brand>
-          <NavDropdown >
-            <MenuItem>Action</MenuItem>
-          </NavDropdown>
-          <div>
-            <ChangeLanguage />
-            <Button onClick={() => this.setState({ open: !this.state.open })}>
-              Open Map
+          </NavItem>
+          <ChangeLanguage />
+
+          <Button className="button" onClick={() => this.setState({ open: !this.state.open })}>
+            <Image src={viewmapbutton} alt='View Map' className="menuicon" responsive />
+            Open Map
         </Button>
-            <Collapse in={this.state.open}>
-              <div>
-                <Well>
-                  {/* <GoogleApiWrapper /> */}
-                </Well>
-              </div>
-            </Collapse>
-          </div>
-        </Navbar>
+          <Collapse in={this.state.open}>
+            <div>
+              <Button onClick={() => this.setState({ open: !this.state.open })}>
+                Open Map
+        </Button>
+              <Collapse in={this.state.open}>
+                <div>
+                  <Well>
+                    {/* <GoogleApiWrapper /> */}
+                  </Well>
+                </div>
+              </Collapse>
+            </div>
+          </Collapse>
+        </Nav>
+
+
         <div className="App">
-          <Col xs={12} sm={8} md={6}>
+          <Col xs={12} sm={10} md={8}>
             <h1>journey</h1>
             <h1>notes</h1>
             <Switch>
@@ -121,9 +131,9 @@ function ChangeLanguage() {
   }
   return (
     <div>
+      <input type="image" onClick={() => changeLanguage('en')} src={UKflag} alt="en" />&nbsp;
       <input type="image" onClick={() => changeLanguage('fi')} src={FinnishFlag} alt="fi" />&nbsp;
-      <input type="image" onClick={() => changeLanguage('en')} src={UKflag} alt="en" />
-      <input type="image" onClick={() => changeLanguage('se')} src={SwedishFlag} alt="se" />
+      <input type="image" onClick={() => changeLanguage('se')} src={SwedishFlag} alt="se" />&nbsp;
       {/* <button onClick={() => changeLanguage('en')}>English</button> */}
       {/* <button onClick={() => changeLanguage('fi')}>Suomi</button> */}
     </div>
