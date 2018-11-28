@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import FirstView from "./views/FirstView";
 import CreateTripView from "./views/CreateTripView";
 import TripView from "./views/TripView";
-import { Col, Navbar, NavDropdown, MenuItem } from "react-bootstrap";
+import { Col, Navbar, NavDropdown, MenuItem, Image } from "react-bootstrap";
 import EditTripView from "./views/EditTripView";
 import logoutbutton from "./images/logoutbutton.png";
 import menu from "./images/menu.png";
@@ -51,7 +51,7 @@ class App extends Component {
       console.log("logout button");
       button = (                  
       <div>
-        <img className='plus' src={logoutbutton} alt='Logout'
+        <Image  src={logoutbutton} className='plus' alt='Logout'
          onClick={() => this.authService.logout()}/>
          <h3>Logout</h3>
       </div>
@@ -64,15 +64,15 @@ class App extends Component {
     let logoutButton = this.createLogoutButton();
     return (
       <div>
-      <Navbar className="menu">
+       <Navbar className="menu">
        <Navbar.Brand>
         
-        <img src={menu} alt='Menu' className="menuicon"/>
+        <Image src={menu} alt='Menu' className="menuicon" responsive/>
       </Navbar.Brand>
         <NavDropdown >
           <MenuItem>Action</MenuItem>
         </NavDropdown>
-      </Navbar>
+      </Navbar> 
       <div className="App">
       <Col xs={12} sm={8} md={6}>     
         <h1>journey</h1> 
@@ -84,7 +84,7 @@ class App extends Component {
           <Route path="/CreateTripView" component={CreateTripView} />
           <Route path="/TripView/:tripId" component={TripView} />
           <Route path="/EditTripView/:tripId" component={EditTripView} />
-        </Switch>      
+        </Switch>  
         {logoutButton}
         </Col>
         </div>
