@@ -34,7 +34,7 @@ class FirstView extends Component {
     return (
       <div>
           <Jumbotron className="jumbo">
-          <GoogleApiWrapper trips={this.state.trips}/>
+       
           <Nav className="nav">
             <NavItem href="/CreateTripView" active onClick={this.newTrip}>
               Create new Trip
@@ -52,7 +52,10 @@ class FirstView extends Component {
           <TripList trips={this.state.trips} />
           </div>
           </Jumbotron>
+        <div>
         
+           <GoogleApiWrapper trips={this.state.trips}/>
+        </div>
       </div>
     );
   }
