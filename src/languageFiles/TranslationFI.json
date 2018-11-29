@@ -1,6 +1,6 @@
 {
     "My past adventures": "Aiemmat matkani",
-    "Create a new pitstop": "Luo uusi etappi",
+    "Create a new pitstop": "Luo uusi etappi, kiitos",
     "Leave a note": "Kirjoita viesti",
     "Title": "Otsikko",
     "Give a headline": "Kirjoita otsikko",
@@ -23,5 +23,11 @@
     "Starting message": "Ladataan...",
     "Pitstops headline":"Tässä ovat muistosi",
     "Trip map search":"Matkakohteesi",
-    "Pitstop map search":"Missä kävit?"
+    "Pitstop map search":"Missä kävit?",
+    "Account": "tili",
+    "Language": "Kieli",
+    "Home": "Koti",
+    "Create a new Trip": "Luo uusi matka",
+    "Logout": "Kirjaudu",
+    "LogoutFIOnly": "ulos"
 }

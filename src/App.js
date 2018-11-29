@@ -85,19 +85,19 @@ class App extends Component {
           <Link to='/FirstView'>
             <Button className="button">
               <Image src={menu} className='menuicon' alt='Menu' responsive />
-              Home
+              {i18n.t('Home')}
          </Button>
           </Link>
           <Button className="button" onClick={() => this.authService.logout()}>
             <Image src={logoutbutton} alt='Log Out' className="menuicon" responsive />
             {/* {logoutbutton} */}
-            Log Out
+            {i18n.t('Logout')}<br/>{i18n.t('LogoutFIOnly')}
         </Button>
         <div>
           <Button className="button" onClick={() => this.setState({open:!this.state.open})}>
             <Image src={languagebutton} alt='Language change' className="menuicon" responsive />
             {/* {logoutbutton} */}
-            Language
+            {i18n.t('Language')}
         </Button>
           <Collapse in={this.state.open}>
             <div>
@@ -112,7 +112,7 @@ class App extends Component {
                           this.AccountDelete();
                       }}>
             <Image src={deleteaccount} className='menuicon' alt='Menu' responsive />
-            Delete<br/> account
+            {i18n.t('Delete')}<br/>{i18n.t('Account')}
           </Button>
         </Nav>
 

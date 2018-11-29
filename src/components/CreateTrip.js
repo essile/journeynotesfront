@@ -83,7 +83,7 @@ class Trip extends Component {
   render() {
     return (
       <div>
-        <h2>Create a new trip</h2>
+        <h2>{i18n.t("Create a new Trip")}</h2>
         <Jumbotron className='jumbo'>
           <form className="form">
             <FormGroup>

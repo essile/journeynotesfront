@@ -40,7 +40,7 @@ class FirstView extends Component {
               <Jumbotron className="jumboCreatebutton">
             <Link to="/CreateTripView" active onClick={this.newTrip}>
               <div>
-              <h3>Create a new Trip</h3>
+              <h3>{i18n.t("Create a new Trip")}</h3>
                 <img className='plus' src={plusbutton} alt='Create'/>
               </div>
             </Link>
