@@ -66,18 +66,21 @@ class MapContainer extends Component {
         google = { this.props.google }
         onClick = { this.onMapClick }
         zoom = { 1 }
-        initialCenter = {{lat: 60.1733244, lng: 24.9410248} }
-        
+        initialCenter = {{lat: 60.1733244, lng: 24.9410248} }       
         onReady={this.addMarker}
       >
       {trips.map(trip =>{ 
-        let pos = trip.position
+        let pos = trip.position   
+        let place = null;
+        if(pos !== null)
+        {
         let splitattu = pos.split(',')
         let first = splitattu[0].split(':')
         const lat = parseFloat(first[1]);
         let sec =  splitattu[1].split(':')
-        const lng = parseFloat(sec[1]);
-        let place = {lat,lng}
+        const lng = parseFloat(sec[1]);   
+        place = {lat,lng}
+        console.log(place)
         return(
         <Marker  key={trip.id}
           // ref={this.onMarkerMounted}
@@ -85,7 +88,7 @@ class MapContainer extends Component {
           title = { trip.headline }
           position = {place}
           name = { trip.headline }
-      />)})}
+      />)}})}
         {/* <Marker
           onClick = { this.onMarkerClick }
           title = { 'Changing Colors Garage' }
