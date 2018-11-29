@@ -20,7 +20,7 @@ class FirstView extends Component {
         var trips = response;
 
         this.setState({ trips: trips });
-        console.log(this.state.trips);
+        // console.log(this.state.trips);
       });
     }, 2000)
   };

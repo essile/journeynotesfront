@@ -14,12 +14,18 @@ import UKflag from "./images/UKflag.png";
 import SwedishFlag from "./images/SwedishFlag.png";
 import i18n from "./i18n";
 import NotFound from "./views/NotFound";
+import { DeleteAccount } from "./ServiceClient";
 
 class App extends Component {
   constructor() {
     super();
     this.authService = new AuthService();
     this.state = { open: false }
+  }
+
+  AccountDelete=()=> {
+    DeleteAccount();
+    this.authService.logout();
   }
 
   renderFirstView() {
@@ -68,6 +74,12 @@ class App extends Component {
     return (
       <div>
         <Nav>
+          <Button bsStyle="warning" onClick={() => {
+                        if (window.confirm("Are you sure you want to delete your account?"))
+                          this.AccountDelete();
+                      }}>
+            Delete account
+          </Button>
           <Link to='/FirstView'>
             <Button className="button">
               <Image src={menu} className='menuicon' alt='Menu' responsive />
