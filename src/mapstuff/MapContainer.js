@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper, } from 'google-maps-react';
+import { relative } from 'path';
+import giffi from "../images/giffi.gif";
 
 //Code reproduced with minor changes from https://github.com/fullstackreact/google-maps-react (npm google-maps-react) in 
 //accordance with the MIT license 
@@ -106,7 +108,7 @@ class MapContainer extends Component {
   }
 }
 const LoadingContainer = (props) => (
-  <div>Fancy loading container!</div>
+  <div>{giffi}</div>
 )
 
 export default GoogleApiWrapper({
