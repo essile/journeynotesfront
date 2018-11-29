@@ -4,16 +4,16 @@ import './index.css';
 import "./App.css";
 import './i18n';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import Translation from './Translation';
 
 ReactDOM.render(
     <BrowserRouter>
-        <Translation/> 
+        <Translation />
         {/* This Translation component is between index and App
         so that you can change the language of the site */}
     </BrowserRouter>,
-document.getElementById('root'));
+    document.getElementById('root'));
 
 
 // ReactDOM.render(<App />, document.getElementById('root'));

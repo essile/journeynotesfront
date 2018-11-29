@@ -88,7 +88,7 @@ class CreatePitStop extends Component {
           />
           <ControlLabel className="formtext">{i18n.t('Leave a note')}:</ControlLabel>
           <FormControl
-            type="text"
+            componentClass="textarea"
             value={this.state.note}
             placeholder="Went to the Empire State Building"
             onChange={this.noteSet}

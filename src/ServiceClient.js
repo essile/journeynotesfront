@@ -1,15 +1,13 @@
 import Axios from "axios";
 var localhost = "https://localhost:44316";
 
-
 export function GetAllTrips(callback) {
   const accessToken = sessionStorage.getItem("access_token");
-
-  console.log("Kävin serviceclientissa");
-  console.log(accessToken);
+  // console.log("Kävin serviceclientissa");
+  // console.log(accessToken);
   // const {getAccessToken} = this.props.auth;
   const headers = { Authorization: `Bearer ${accessToken}` };
-  console.log(headers);
+  // console.log(headers);
   Axios.get(localhost + "/api/Trips", { headers }).then(response => {
     callback(response.data);
   });
@@ -25,9 +23,8 @@ export function AddTrip(trip, callback) {
   data.append("startDate", trip.startDate);
   data.append("endDate", trip.endDate);
   data.append("position", trip.position)
-  data.append("picture", new Blob([trip.photo], { type: "image/jpeg" }));
-  
-  console.log(accessToken);
+  data.append("picture", new Blob([trip.photo], { type: "image/jpeg" }));  
+  // console.log(accessToken);
   console.dir(trip);
   console.dir(data);
   Axios.post(localhost + "/api/Trips", data, { headers }).then(response => {
@@ -38,10 +35,8 @@ export function AddTrip(trip, callback) {
 
 export function AddPitstop(pitstop, callback) {
   const accessToken = sessionStorage.getItem("access_token");
-
   const data = new FormData();
   const headers = { Authorization: `Bearer ${accessToken}` };
-
   data.append("action", "POST");
   data.append("title", pitstop.title);
   data.append("note", pitstop.note);
@@ -60,12 +55,11 @@ export function AddPitstop(pitstop, callback) {
 export function GetTripWithPitstops(tripId, callback) {
   //var tripId = 1;
   const accessToken = sessionStorage.getItem("access_token");
-  console.log("Kävin serviceclientissa");
-  console.log(accessToken);
-  
+  // console.log("Kävin serviceclientissa");
+  // console.log(accessToken);
   // const {getAccessToken} = this.props.auth;
   const headers = { 'Authorization': `Bearer ${accessToken}`};
-  console.log("GetTripWithPitstopsista headers: ", headers);
+  // console.log("GetTripWithPitstopsista headers: ", headers);
   Axios.get(localhost + "/api/Trips/" + tripId, { headers }).then(response => {
     callback(response.data);
   });
@@ -96,10 +90,8 @@ export function DeletePitstop(tripId, pitstopId) {
 export function EditTrip(trip) {
   const accessToken = sessionStorage.getItem("access_token");
   const headers = { 'Authorization': `Bearer ${accessToken}`};
-
-  console.log("EditTrip, trip", trip);
-
-  console.log("edittrip-funktiosta:" + accessToken);
+  // console.log("EditTrip, trip", trip);
+  // console.log("edittrip-funktiosta:" + accessToken);
   return Axios.put(localhost + '/api/Trips/'+ trip.tripId, trip, {headers})
   .then(response=> {
       console.log("trip edited");

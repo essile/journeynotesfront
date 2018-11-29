@@ -15,14 +15,14 @@ class FirstView extends Component {
   }
 
   componentDidMount = () => {
-    this.interval=setInterval(( )=> {
+    this.interval = setInterval(() => {
       GetAllTrips(response => {
-      var trips = response;
+        var trips = response;
 
-      this.setState({ trips: trips });
-      console.log(this.state.trips);
-    });
-  }, 2000)
+        this.setState({ trips: trips });
+        console.log(this.state.trips);
+      });
+    }, 2000)
   };
 
   componentWillUnmount = () => {
@@ -30,7 +30,7 @@ class FirstView extends Component {
   }
 
   render() {
-    console.log(this.state.trips);
+    //console.log(this.state.trips);
 
     return (
       <div>
@@ -49,19 +49,19 @@ class FirstView extends Component {
         </div>
  
         <div>
-        <h2>{i18n.t('My past adventures')}</h2>
+          <h2>{i18n.t('My past adventures')}</h2>
         </div>
         <Jumbotron className="transparentJumbo">
-        <div>
-          <TripList trips={this.state.trips} />
+          <div>
+            <TripList trips={this.state.trips} />
           </div>
           </Jumbotron>
-        <div>
-        
+
+           <div>      
            <GoogleApiWrapper trips={this.state.trips}/>
-        </div>
+           </div>
       </div>
-    );
+           );
   }
 }
 

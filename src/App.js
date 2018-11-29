@@ -13,9 +13,7 @@ import FinnishFlag from "./images/FinnishFlag.png";
 import UKflag from "./images/UKflag.png";
 import SwedishFlag from "./images/SwedishFlag.png";
 import i18n from "./i18n";
-import GoogleApiWrapper from "./mapstuff/MapContainer";
 import NotFound from "./views/NotFound";
-
 
 class App extends Component {
   constructor() {
@@ -28,7 +26,7 @@ class App extends Component {
     let resultComponent = <FirstView auth={this.authService} />;
 
     if (!this.authService.isAuthenticated()) {
-      console.log("morjes 7");
+      // console.log("morjes 7");
       this.authService.login();
       resultComponent = (
         <div>
@@ -40,8 +38,7 @@ class App extends Component {
   }
 
   startSession(history) {
-    console.log("morjes startSession ");
-    console.log("morjes 7");
+    // console.log("morjes startSession ");
     this.authService.handleAuthentication(history);
     return (
       <div>
@@ -50,7 +47,7 @@ class App extends Component {
     );
   }
 
-  createLogoutButton() {
+/*   createLogoutButton() {
     let button = null;
 
     if (this.authService.isAuthenticated()) {
@@ -65,9 +62,9 @@ class App extends Component {
     }
     return button;
   }
-
+ */
   render() {
-    let logoutButton = this.createLogoutButton();
+    
     return (
       <div>
         <Nav>
@@ -112,7 +109,7 @@ class App extends Component {
               <Route path="/CreateTripView" component={CreateTripView} />
               <Route path="/TripView/:tripId" component={TripView} />
               <Route path="/EditTripView/:tripId" component={EditTripView} />
-              <Route component={NotFound}/>
+              <Route component={NotFound} />
             </Switch>
             {/* {logoutButton} */}
           </Col>
