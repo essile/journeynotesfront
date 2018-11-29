@@ -15,10 +15,12 @@
     "Delete": "Delete",
     "Delete trip warning message": "Är du säker att du vill radera din resa och dess alla etapper?",
     "Delete pitstop warning message": "Är du säker att du vill radera etappen?",
+    "Delete account warning message":"Är du säker att du vill radera kontot? Det kan inte .",
     "Edit headline": "Ändra rubriken",
     "Edit description": "Ändra beskrivningen",
     "Done": "Färdig",
     "Redirecting auth message": "Omdirigeras till autentiseringstjänsten...",
     "Starting message": "Laddar upp...",
-    "Logout": "Logga ut"
+    "Logout": "Logga ut",
+    "Pitstops headline":"Här är dina minnen"
 }

@@ -13,6 +13,7 @@ import i18n from "../i18n";
 const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
 const warningMessageTrip = i18n.t("Delete trip warning message");
 const warningMessagePitstop = i18n.t("Delete pitstop warning message");
+const headlinePitstops = i18n.t("Pitstops headline");
 
 class Trip extends Component {
   constructor(props) {

@@ -9,6 +9,7 @@ import { Col, Nav, Image, Button, Collapse, Well } from "react-bootstrap";
 import EditTripView from "./views/EditTripView";
 import logoutbutton from "./images/logoutbutton.png";
 import languagebutton from "./images/languagebutton.png";
+import deleteaccount from "./images/deleteaccount.png";
 import menu from "./images/menu.png";
 import FinnishFlag from "./images/FinnishFlag.png";
 import UKflag from "./images/UKflag.png";
@@ -16,6 +17,7 @@ import SwedishFlag from "./images/SwedishFlag.png";
 import i18n from "./i18n";
 import NotFound from "./views/NotFound";
 import { DeleteAccount } from "./ServiceClient";
+const warningMessageAccount = i18n.t("Delete account warning message");
 
 class App extends Component {
   constructor() {
@@ -80,12 +82,6 @@ class App extends Component {
             <h1>notes</h1>
           </div>
         <Nav className="nav">
-          <Button bsStyle="warning" onClick={() => {
-                        if (window.confirm("Are you sure you want to delete your account?"))
-                          this.AccountDelete();
-                      }}>
-            Delete account
-          </Button>
           <Link to='/FirstView'>
             <Button className="button">
               <Image src={menu} className='menuicon' alt='Menu' responsive />
@@ -111,6 +107,13 @@ class App extends Component {
             </div>
           </Collapse>
           </div>
+          <Button className="button" onClick={() => {
+                        if (window.confirm("Are you sure you want to delete your account?"))
+                          this.AccountDelete();
+                      }}>
+            <Image src={deleteaccount} className='menuicon' alt='Menu' responsive />
+            Delete<br/> account
+          </Button>
         </Nav>
 
         <div className="App">
