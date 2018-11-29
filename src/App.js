@@ -14,7 +14,8 @@ import UKflag from "./images/UKflag.png";
 import SwedishFlag from "./images/SwedishFlag.png";
 import viewmapbutton from "./images/viewmapbutton.png";
 import i18n from "./i18n";
-import GoogleApiWrapper from "./mapstuff/MapContainer"
+import GoogleApiWrapper from "./mapstuff/MapContainer";
+import NotFound from "./views/NotFound";
 
 
 class App extends Component {
@@ -109,6 +110,7 @@ class App extends Component {
               <Route path="/CreateTripView" component={CreateTripView} />
               <Route path="/TripView/:tripId" component={TripView} />
               <Route path="/EditTripView/:tripId" component={EditTripView} />
+              <Route component={NotFound}/>
             </Switch>
             {logoutButton}
           </Col>
