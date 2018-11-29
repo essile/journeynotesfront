@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import TripList from "../components/TripList";
 import { GetAllTrips } from "../ServiceClient";
-import { Jumbotron, Nav, NavItem } from "react-bootstrap";
+import { Jumbotron } from "react-bootstrap";
 import "../cssstyles/View.css";
 import plusbutton from "../images/plusbutton.png";
 import i18n from "../i18n";
@@ -33,17 +34,20 @@ class FirstView extends Component {
 
     return (
       <div>
-        <Jumbotron className="jumbo">
 
-          <Nav className="nav">
-            <NavItem href="/CreateTripView" active onClick={this.newTrip}>
-              Create new Trip
+        <div>
+          {/* <Nav className="nav"> */}
+              <Jumbotron className="jumboCreatebutton">
+            <Link to="/CreateTripView" active onClick={this.newTrip}>
               <div>
-                <img className='plus' src={plusbutton} alt='Create' />
+              <h3>Create a new Trip</h3>
+                <img className='plus' src={plusbutton} alt='Create'/>
               </div>
-            </NavItem>
-          </Nav>
-        </Jumbotron>
+            </Link>
+            </Jumbotron>
+          {/* </Nav> */}
+        </div>
+ 
         <div>
           <h2>{i18n.t('My past adventures')}</h2>
         </div>
@@ -52,12 +56,12 @@ class FirstView extends Component {
             <TripList trips={this.state.trips} />
           </div>
           </Jumbotron>
-        <Jumbotron className="map">     
-           <GoogleApiWrapper trips={this.state.trips}/>
-        </Jumbotron>
 
-      </div >
-    );
+           <div>      
+           <GoogleApiWrapper trips={this.state.trips}/>
+           </div>
+      </div>
+           );
   }
 }
 

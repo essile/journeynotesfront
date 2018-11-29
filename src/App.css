@@ -23,6 +23,7 @@
   border-style: none;
   border-radius: 5%;
   padding: 1em;
+  margin:0.5em;
 }
 .button:hover {
   background-color: white;
@@ -64,4 +65,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+.titlestyle {
+  margin-bottom: 2em;
 }

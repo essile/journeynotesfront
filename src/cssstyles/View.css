@@ -14,6 +14,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding: 0;
   }
 
 .tripView {
@@ -26,6 +27,17 @@
     align-items: center;
     justify-content: center;
 }
+.jumboCreatebutton{
+    background-color: #efe7d6;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-radius: 0.5em;
+    width: 40%;
+    padding-top:0.1em;
+    padding-bottom: 0.3em;
+} 
 
 .tripHeadline {
     margin: auto;
@@ -34,10 +46,4 @@
 .pitstopsOfTrip {
     margin: 1em;
 }
-.map {
-    height: 500px;
-    background-color: #efe7d6;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-} 
+

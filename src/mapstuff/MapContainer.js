@@ -46,17 +46,12 @@ class MapContainer extends Component {
 
   render() {
     const trips = this.props.trips;
-    // console.log(trips);
-    // {trips.map(trip => {
-    // console.log("Position:" + trip.position + " name" + trip.headline);
-    // })}
-    // console.log(trips.position);
     const style = {
-      width: '80%',
-      height: '40%',
-      'marginLeft': '8%',
-      'marginRight': ''
-    }
+      width: '70%',
+      height: '35%',
+      'marginLeft': '15%',
+      'marginRight': '10%'
+    }  
     return (
       <Map
         // item
@@ -109,8 +104,6 @@ class MapContainer extends Component {
     );
   }
 }
-
-
 const LoadingContainer = (props) => (
   <div>Fancy loading container!</div>
 )

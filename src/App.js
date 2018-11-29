@@ -1,18 +1,17 @@
 import React, { Component } from "react";
 import "./App.css";
 import AuthService from "./AuthService";
-import { Switch, Route } from "react-router-dom";
+import { Link, Switch, Route } from "react-router-dom";
 import FirstView from "./views/FirstView";
 import CreateTripView from "./views/CreateTripView";
 import TripView from "./views/TripView";
-import { Col, NavItem, Nav, Image, Button, Collapse, Well } from "react-bootstrap";
+import { Col, Nav, Image, Button, Collapse, Well } from "react-bootstrap";
 import EditTripView from "./views/EditTripView";
 import logoutbutton from "./images/logoutbutton.png";
 import menu from "./images/menu.png";
 import FinnishFlag from "./images/FinnishFlag.png";
 import UKflag from "./images/UKflag.png";
 import SwedishFlag from "./images/SwedishFlag.png";
-import viewmapbutton from "./images/viewmapbutton.png";
 import i18n from "./i18n";
 import NotFound from "./views/NotFound";
 
@@ -48,7 +47,7 @@ class App extends Component {
     );
   }
 
-  createLogoutButton() {
+/*   createLogoutButton() {
     let button = null;
 
     if (this.authService.isAuthenticated()) {
@@ -63,22 +62,25 @@ class App extends Component {
     }
     return button;
   }
-
+ */
   render() {
-    let logoutButton = this.createLogoutButton();
+    
     return (
       <div>
         <Nav>
-          <NavItem href='/FirstView'>
+          <Link to='/FirstView'>
             <Button className="button">
               <Image src={menu} className='menuicon' alt='Menu' responsive />
               Home
          </Button>
-          </NavItem>
+
+          </Link>
           <ChangeLanguage />
-          <Button className="button" onClick={() => this.setState({ open: !this.state.open })}>
-            <Image src={viewmapbutton} alt='View Map' className="menuicon" responsive />
-            Open Map
+
+          <Button className="button" onClick={() => this.authService.logout()}>
+            <Image src={logoutbutton} alt='Log Out' className="menuicon" responsive />
+            {/* {logoutbutton} */}
+            Log Out
         </Button>
           <Collapse in={this.state.open}>
             <div>
@@ -96,8 +98,10 @@ class App extends Component {
 
         <div className="App">
           <Col xs={12} sm={10} md={8}>
+          <div className="titlestyle">
             <h1>journey</h1>
             <h1>notes</h1>
+          </div>
             <Switch>
               <Route exact path="/" render={() => this.renderFirstView()} />
               <Route path="/startSession" render={({ history }) => this.startSession(history)} />
@@ -107,7 +111,7 @@ class App extends Component {
               <Route path="/EditTripView/:tripId" component={EditTripView} />
               <Route component={NotFound} />
             </Switch>
-            {logoutButton}
+            {/* {logoutButton} */}
           </Col>
         </div>
       </div>
