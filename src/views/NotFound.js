@@ -12,7 +12,7 @@ class NotFound extends Component {
             <Grid>
             <Row className="show-grid">
                 <Col xs={12} sm={12} md={12} lg={12}>
-                <h2>Probobly not what you were looking for...</h2>
+                <h2>Propobly not what you were looking for...</h2>
                 </Col>
             </Row>
             <Row className="show-grid">
