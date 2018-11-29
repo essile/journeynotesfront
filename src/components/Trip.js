@@ -18,7 +18,10 @@ const headlinePitstops = i18n.t("Pitstops headline");
 class Trip extends Component {
   constructor(props) {
     super(props);
-    this.state = { tripPitstops: [] };
+    this.state =
+      {
+        tripPitstops: [],
+      };
   }
   componentDidMount = () => {
     console.log("tripin propsit", this.props);
@@ -33,9 +36,36 @@ class Trip extends Component {
       GetTripWithPitstops(tripId, response => {
         var tripPitstops = response;
         this.setState({ tripPitstops: tripPitstops });
+        var start = []
+          .concat(this.state.tripPitstops)
+          .map(start => {
+            return (
+              start.startDate.substring(0, 10)
+            )
+          })
+        this.props.startDate(start);
+        var end = []
+          .concat(this.state.tripPitstops)
+          .map(start => {
+            return (
+              start.endDate.substring(0, 10)
+            )
+          })
+        this.props.endDate(end);
       });
     }, 2000);
   };
+
+  // startDate = () => {
+  //   var startDate = this.state.startDate;
+  //   this.props.startDate(startDate);
+  //   console.log("jooooooo")
+  // }
+
+  endDate = () => {
+    var endDate = this.state.endDate;
+    this.props.endDate(endDate);
+  }
 
   handleTripDelete = () => {
     let tripId = this.props.match.params.tripId;
@@ -50,110 +80,107 @@ class Trip extends Component {
   };
 
   render() {
-    console.log(this.state.tripPitstops);
+    // console.log(this.state.tripPitstops);
     var TripWithPitstops = []
       .concat(this.state.tripPitstops)
-      .map(tripPitstop => (
-        <div key={tripPitstop.tripId}>
-          <Jumbotron className="jumbo">
-            <div>
-              <h1 className="tripHeadline">{tripPitstop.headline}</h1>
-              <h4>{tripPitstop.description}</h4>
-              <h3>
-                {" "}
-                🛪 {tripPitstop.startDate.substring(0, 10)} /{" "}
-                {tripPitstop.endDate.substring(0, 10)}
-              </h3>
-              <Image
-            src={
-              tripPitstop.mainPhotoUrl === ""
-                ? "https://media.giphy.com/media/yv10uxsLG8BLcB7Gac/giphy.gif"
-                : photoUrl + tripPitstop.mainPhotoUrl
-            }
-            alt="trip main"
-            responsive
-          />
-              <Nav>
-                <NavItem
-                  href={`/EditTripView/${this.props.match.params.tripId}`}
-                  active
-                >
-                  <div>
-                    <Image
-                      className="plus"
-                      src={editbutton}
-                      alt={i18n.t("Edit")}
-                      responsive
-                    />
-                  </div>
-                </NavItem>
-                <NavItem
-                  href="/FirstView"
-                  active
-                  onClick={() => {
-                    if (window.confirm(warningMessageTrip))
-                      this.handleTripDelete();
-                  }}
-                >
-                  <div>
-                    <Image
-                      className="plus"
-                      src={deletebutton}
-                      alt={i18n.t("Delete")}
-                      responsive
-                    />
-                  </div>
-                </NavItem>
-              </Nav>
-            </div>
-          </Jumbotron>
-          <h2>{headlinePitstops}</h2>
-          <Jumbotron key={tripPitstop.id} className="jumbo">
-          {tripPitstop.pitstops.map(pitstop => {
-            console.log(photoUrl + pitstop.photoMediumUrl);
-
-            return (
-                <div className="pitstopsOfTrip">
-                  
-                  <h3>{pitstop.title}</h3>
-                  
-
-                  <div>
-                    <Image
-                      src={
-                        pitstop.photoSmallUrl === ""
-                          ? "https://media.giphy.com/media/yv10uxsLG8BLcB7Gac/giphy.gif"
-                          : photoUrl + pitstop.photoSmallUrl
-                      }
-                      alt="trip main"
-                      responsive
-                    />
-                  </div>
-                  <p>{pitstop.note}</p>
-                  <h5>{pitstop.pitstopDate.substring(0, 10)}</h5>
-                  <Nav>
-                    <NavItem
-                      active
-                      onClick={() => {
-                        if (window.confirm(warningMessagePitstop))
-                          this.handlePitstopDelete(pitstop.pitstopId);
-                      }}
-                    >
+      .map(tripPitstop => {
+        return (
+          <div key={tripPitstop.tripId}>
+            <Jumbotron className="jumbo">
+              <div>
+                <h1 className="tripHeadline">{tripPitstop.headline}</h1>
+                <h4>{tripPitstop.description}</h4>
+                <h3>
+                  {" "}
+                  🛪 {tripPitstop.startDate.substring(0, 10)} /{" "}
+                  {tripPitstop.endDate.substring(0, 10)}
+                </h3>
+                <Image
+                  src={
+                    tripPitstop.mainPhotoUrl === ""
+                      ? "https://media.giphy.com/media/yv10uxsLG8BLcB7Gac/giphy.gif"
+                      : photoUrl + tripPitstop.mainPhotoUrl
+                  }
+                  alt="trip main"
+                  responsive
+                />
+                <Nav>
+                  <NavItem
+                    href={`/EditTripView/${this.props.match.params.tripId}`}
+                    active
+                  >
+                    <div>
+                      <Image
+                        className="plus"
+                        src={editbutton}
+                        alt={i18n.t("Edit")}
+                        responsive
+                      />
+                    </div>
+                  </NavItem>
+                  <NavItem
+                    href="/FirstView"
+                    active
+                    onClick={() => {
+                      if (window.confirm(warningMessageTrip))
+                        this.handleTripDelete();
+                    }}
+                  >
+                    <div>
                       <Image
                         className="plus"
                         src={deletebutton}
                         alt={i18n.t("Delete")}
                         responsive
                       />
-                    </NavItem>
-                  </Nav>
-                </div>
-            );
-          })}
-         
-          </Jumbotron>
-        </div>
-      ));
+                    </div>
+                  </NavItem>
+                </Nav>
+              </div>
+            </Jumbotron>
+            <h2>Here are your memories</h2>
+            <Jumbotron key={tripPitstop.id} className="jumbo">
+              {tripPitstop.pitstops.map(pitstop => {
+                console.log(photoUrl + pitstop.photoMediumUrl);
+                return (
+                  <div className="pitstopsOfTrip">
+                    <h3>{pitstop.title}</h3>
+                    <div>
+                      <Image
+                        src={
+                          pitstop.photoSmallUrl === ""
+                            ? "https://media.giphy.com/media/yv10uxsLG8BLcB7Gac/giphy.gif"
+                            : photoUrl + pitstop.photoSmallUrl
+                        }
+                        alt="trip main"
+                        responsive
+                      />
+                    </div>
+                    <p>{pitstop.note}</p>
+                    <h5>{pitstop.pitstopDate.substring(0, 10)}</h5>
+                    <Nav>
+                      <NavItem
+                        active
+                        onClick={() => {
+                          if (window.confirm(warningMessagePitstop))
+                            this.handlePitstopDelete(pitstop.pitstopId);
+                        }}
+                      >
+                        <Image
+                          className="plus"
+                          src={deletebutton}
+                          alt={i18n.t("Delete")}
+                          responsive
+                        />
+                      </NavItem>
+                    </Nav>
+                  </div>
+                );
+              })}
+            </Jumbotron>
+          </div>
+        )
+      });
     return <div>{TripWithPitstops}</div>;
   }
 }
