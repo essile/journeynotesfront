@@ -25,7 +25,7 @@ export default class AuthService {
   }
 
   login() {
-    console.log("morjes 1");
+    // console.log("morjes 1");
     this.auth0.authorize();
   }
 
@@ -34,7 +34,7 @@ export default class AuthService {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
         history.replace("/");
-        console.log("morjes 2");
+        // console.log("morjes 2");
       } else if (err) {
         history.replace("/");
         console.log(err);
@@ -47,18 +47,18 @@ export default class AuthService {
     sessionStorage.setItem('access_token', authResult.accessToken);
     sessionStorage.setItem('id_token', authResult.idToken);
     sessionStorage.setItem('expires_at', expiresAt);
-    console.log("morjes 3");
+    // console.log("morjes 3");
     history.replace("/");
   }
 
   isAuthenticated() {
     let expiresAt = JSON.parse(sessionStorage.getItem('expires_at'));
-    console.log("morjes 4");
+    // console.log("morjes 4");
     return new Date().getTime() < expiresAt;
   }
   
   getAccessToken() {
-    console.log("morjes 5");
+    // console.log("morjes 5");
     const accessToken = sessionStorage.getItem('access_token');
     if (!accessToken) {
       throw new Error('No access token found');

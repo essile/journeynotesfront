@@ -26,3 +26,12 @@
     align-items: center;
     justify-content: center;
 }
+
+.tripHeadline {
+    margin: auto;
+}
+
+.pitstopsOfTrip {
+    margin: 1em;
+}
+
