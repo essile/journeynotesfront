@@ -4,7 +4,7 @@ import { classnames } from './helpers.js';
 import './demo.css'
 import i18n from "../i18n";
 
-const tripDestination = i18n.t("Trip map search");
+const tripDestination = i18n.t('Trip map search');
 
 
 //Code reproduced with minor changes from https://github.com/hibiken/react-places-autocomplete 
@@ -91,7 +91,7 @@ class SearchComponent extends React.Component {
                 <div className="Demo__search-input-container">
                   <input
                     {...getInputProps({
-                      placeholder: {tripDestination},
+                      placeholder: tripDestination,
                       className: 'Demo__search-input',
                     })}
                   />

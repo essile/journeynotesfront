@@ -4,7 +4,7 @@ import { classnames } from './helpers.js';
 import './demo.css'
 import i18n from "../i18n";
 
-const pitstopDestination = i18n.t("Pitstop map search");
+const pitstopDestination = i18n.t('Pitstop map search');
 
 //Code reproduced with minor changes from https://github.com/hibiken/react-places-autocomplete 
 //(npm react-places-autocomplete) in accordance with the MIT license 
@@ -90,7 +90,7 @@ class PitStopSearchComponent extends React.Component {
                 <div className="Demo__search-input-container">
                   <input
                     {...getInputProps({
-                      placeholder: {pitstopDestination},
+                      placeholder: pitstopDestination,
                       className: 'Demo__search-input',
                     })}
                   />

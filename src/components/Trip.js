@@ -138,7 +138,7 @@ class Trip extends Component {
                 </Nav>
               </div>
             </Jumbotron>
-            <h2>Here are your memories</h2>
+            <h2>{headlinePitstops}</h2>
             <Jumbotron key={tripPitstop.id} className="jumbo">
               {tripPitstop.pitstops.map(pitstop => {
                 console.log(photoUrl + pitstop.photoMediumUrl);

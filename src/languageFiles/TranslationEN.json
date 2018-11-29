@@ -22,5 +22,7 @@
     "Redirecting auth message": "Redirecting to the authentication service...",
     "Starting message": "Starting session...",
     "Logout": "Logout",
-    "Pitstops headline":"Here are your memories"
+    "Pitstops headline": "Here are your memories",
+    "Trip map search": "Please share your destination",
+    "Pitstop map search": "Where did you go?"
 }
