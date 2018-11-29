@@ -2,6 +2,9 @@ import auth0 from 'auth0-js';
 import { AUTH_CONFIG } from './Auth0Config';
 import history from './history';
 
+//Code reproduced with minor changes from https://auth0.com/docs/... 
+//Copyright (c) 2015-current Auth0, Inc. <support@auth0.com> (http://auth0.com)
+
 export default class AuthService {
   auth0 = new auth0.WebAuth({
     domain: AUTH_CONFIG.domain,

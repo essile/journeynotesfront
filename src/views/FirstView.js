@@ -51,11 +51,12 @@ class FirstView extends Component {
           <div>
             <TripList trips={this.state.trips} />
           </div>
+          </Jumbotron>
+        <Jumbotron className="map">     
+           <GoogleApiWrapper trips={this.state.trips}/>
         </Jumbotron>
-        <div>
-          <GoogleApiWrapper trips={this.state.trips} />
-        </div>
-      </div>
+
+      </div >
     );
   }
 }

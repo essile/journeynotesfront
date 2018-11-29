@@ -3,6 +3,9 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 import { classnames } from './helpers.js';
 import './demo.css'
 
+//Code reproduced with minor changes from https://github.com/hibiken/react-places-autocomplete 
+//(npm react-places-autocomplete) in accordance with the MIT license 
+
 class PitStopSearchComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -84,7 +87,7 @@ class PitStopSearchComponent extends React.Component {
                 <div className="Demo__search-input-container">
                   <input
                     {...getInputProps({
-                      placeholder: 'Where did you go',
+                      placeholder: 'Where did you go?',
                       className: 'Demo__search-input',
                     })}
                   />
