@@ -34,3 +34,10 @@
 .pitstopsOfTrip {
     margin: 1em;
 }
+.map {
+    height: 500px;
+    background-color: #efe7d6;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+} 
