@@ -14,9 +14,7 @@ import UKflag from "./images/UKflag.png";
 import SwedishFlag from "./images/SwedishFlag.png";
 import viewmapbutton from "./images/viewmapbutton.png";
 import i18n from "./i18n";
-import GoogleApiWrapper from "./mapstuff/MapContainer";
 import NotFound from "./views/NotFound";
-
 
 class App extends Component {
   constructor() {
@@ -29,7 +27,7 @@ class App extends Component {
     let resultComponent = <FirstView auth={this.authService} />;
 
     if (!this.authService.isAuthenticated()) {
-      console.log("morjes 7");
+      // console.log("morjes 7");
       this.authService.login();
       resultComponent = (
         <div>
@@ -41,8 +39,7 @@ class App extends Component {
   }
 
   startSession(history) {
-    console.log("morjes startSession ");
-    console.log("morjes 7");
+    // console.log("morjes startSession ");
     this.authService.handleAuthentication(history);
     return (
       <div>
@@ -77,10 +74,8 @@ class App extends Component {
               <Image src={menu} className='menuicon' alt='Menu' responsive />
               Home
          </Button>
-
           </NavItem>
           <ChangeLanguage />
-
           <Button className="button" onClick={() => this.setState({ open: !this.state.open })}>
             <Image src={viewmapbutton} alt='View Map' className="menuicon" responsive />
             Open Map
@@ -110,7 +105,7 @@ class App extends Component {
               <Route path="/CreateTripView" component={CreateTripView} />
               <Route path="/TripView/:tripId" component={TripView} />
               <Route path="/EditTripView/:tripId" component={EditTripView} />
-              <Route component={NotFound}/>
+              <Route component={NotFound} />
             </Switch>
             {logoutButton}
           </Col>

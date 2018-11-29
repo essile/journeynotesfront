@@ -1,94 +1,93 @@
-import React, {Component} from 'react';
-import {Map, InfoWindow, Marker, GoogleApiWrapper, onMarkerMounted, google} from 'google-maps-react';
-
-
+import React, { Component } from 'react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper, } from 'google-maps-react';
 
 class MapContainer extends Component {
-   
-    constructor(props) {
-      super(props);
-      this.state = {
-        showingInfoWindow: false,
-        activeMarker: {},
-        selectedPlace: {},
-        //location: ["{position: {lat: 60.1733244, lng: 24.9410248}, name: 1st marker}", "{position: {lat: 60.1733244, lng: 24.9410248}, name: 2nd marker}"],
-        markerObjects: [],
-      }
-      // binding this to event-handler functions
-      this.onMarkerClick = this.onMarkerClick.bind(this);
-      this.onMapClick = this.onMapClick.bind(this);
-      
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
+      //location: ["{position: {lat: 60.1733244, lng: 24.9410248}, name: 1st marker}", "{position: {lat: 60.1733244, lng: 24.9410248}, name: 2nd marker}"],
+      markerObjects: [],
+    }
+    // binding this to event-handler functions
+    this.onMarkerClick = this.onMarkerClick.bind(this);
+    this.onMapClick = this.onMapClick.bind(this);
+
     //   this.onMarkerMounted = element => {
     //     this.setState(prevState => ({
     //       markerObjects: [...prevState.markerObjects, element.marker]
     //   }))
     // };
-    }
+  }
 
+  onMarkerClick = (props, marker, e) => {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+  }
 
-
-    onMarkerClick = (props, marker, e) => {
+  onMapClick = (props) => {
+    if (this.state.showingInfoWindow) {
       this.setState({
-        selectedPlace: props,
-        activeMarker: marker,
-        showingInfoWindow: true
+        showingInfoWindow: false,
+        activeMarker: null
       });
-    }
-
-    onMapClick = (props) => {
-      if (this.state.showingInfoWindow) {
-        this.setState({
-          showingInfoWindow: false,
-          activeMarker: null
-        });
     }
   }
 
   render() {
     const trips = this.props.trips;
-    console.log(trips);
-    {trips.map(trip => {
-      console.log("Position:" + trip.position + " name" + trip.headline);
-    })}
-    console.log(trips.position);
+    // console.log(trips);
+    // {trips.map(trip => {
+    // console.log("Position:" + trip.position + " name" + trip.headline);
+    // })}
+    // console.log(trips.position);
     const style = {
       width: '50vw',
       height: '75vh',
       'marginLeft': 'auto',
       'marginRight': 'auto'
-    }  
+    }
     return (
       <Map
         // item
         classname={"map"}
-        xs = { 12 }
-        style = { style }
-        google = { this.props.google }
-        onClick = { this.onMapClick }
-        zoom = { 1 }
-        initialCenter = {{lat: 60.1733244, lng: 24.9410248} }       
+        xs={12}
+        style={style}
+        google={this.props.google}
+        onClick={this.onMapClick}
+        zoom={1}
+        initialCenter={{ lat: 60.1733244, lng: 24.9410248 }}
         onReady={this.addMarker}
       >
-      {trips.map(trip =>{ 
-        let pos = trip.position   
-        let place = null;
-        if(pos !== null)
-        {
-        let splitattu = pos.split(',')
-        let first = splitattu[0].split(':')
-        const lat = parseFloat(first[1]);
-        let sec =  splitattu[1].split(':')
-        const lng = parseFloat(sec[1]);   
-        place = {lat,lng}
-        console.log(place)
-        return(
-        <Marker  key={trip.id}
-          // ref={this.onMarkerMounted}
-          onClick = { this.onMarkerClick }
-          title = { trip.headline }
-          position = {place}
-          name = { trip.headline }
-      />)}})}
+        {trips.map(trip => {
+          let pos = trip.position
+          let place = null;
+          if (pos !== null) {
+            let splitattu = pos.split(',')
+            let first = splitattu[0].split(':')
+            const lat = parseFloat(first[1]);
+            let sec = splitattu[1].split(':')
+            const lng = parseFloat(sec[1]);
+            place = { lat, lng }
+            // console.log(place)
+            return (
+              <Marker key={trip.id}
+                // ref={this.onMarkerMounted}
+                onClick={this.onMarkerClick}
+                title={trip.headline}
+                position={place}
+                name={trip.headline}
+              />)
+          }
+          else
+            return place;
+        })}
         {/* <Marker
           onClick = { this.onMarkerClick }
           title = { 'Changing Colors Garage' }
@@ -96,12 +95,12 @@ class MapContainer extends Component {
           name = { '2nd marker' }
         />*/}
         <InfoWindow
-          marker = { this.state.activeMarker }
-          visible = { this.state.showingInfoWindow }>
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}>
           <div>
-                <h3>{this.state.activeMarker.name}</h3>
-            </div>
-          </InfoWindow>
+            <h3>{this.state.activeMarker.name}</h3>
+          </div>
+        </InfoWindow>
       </Map>
     );
   }
@@ -109,10 +108,10 @@ class MapContainer extends Component {
 
 
 const LoadingContainer = (props) => (
-    <div>Fancy loading container!</div>
-  )
+  <div>Fancy loading container!</div>
+)
 
 export default GoogleApiWrapper({
-    apiKey:"AIzaSyDIpDkSd2kXRCdGQguK1vbSSGKpv0MinM4",
-    LoadingContainer: LoadingContainer
+  apiKey: "AIzaSyDIpDkSd2kXRCdGQguK1vbSSGKpv0MinM4",
+  LoadingContainer: LoadingContainer
 })(MapContainer)

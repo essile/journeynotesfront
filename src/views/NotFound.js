@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, Jumbotron, Grid, Row, Col } from "react-bootstrap";
+import { Jumbotron, Grid, Row, Col } from "react-bootstrap";
 import "../cssstyles/View.css";
 
 class NotFound extends Component {
