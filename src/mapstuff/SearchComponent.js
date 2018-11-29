@@ -2,6 +2,10 @@ import React from 'react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { classnames } from './helpers.js';
 import './demo.css'
+import i18n from "../i18n";
+
+const tripDestination = i18n.t("Trip map search");
+
 
 //Code reproduced with minor changes from https://github.com/hibiken/react-places-autocomplete 
 //(npm react-places-autocomplete) in accordance with the MIT license 
@@ -87,7 +91,7 @@ class SearchComponent extends React.Component {
                 <div className="Demo__search-input-container">
                   <input
                     {...getInputProps({
-                      placeholder: 'Please share your destination',
+                      placeholder: {tripDestination},
                       className: 'Demo__search-input',
                     })}
                   />

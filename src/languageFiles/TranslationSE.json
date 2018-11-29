@@ -22,5 +22,7 @@
     "Redirecting auth message": "Omdirigeras till autentiseringstjänsten...",
     "Starting message": "Laddar upp...",
     "Logout": "Logga ut",
-    "Pitstops headline":"Här är dina minnen"
+    "Pitstops headline":"Här är dina minnen",
+    "Trip map search":"Resmål",
+    "Pitstop map search":"Var var du?"
 }
