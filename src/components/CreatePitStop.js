@@ -101,13 +101,13 @@ class CreatePitStop extends Component {
               <FormControl
                 type="file"
                 label="File"
-                help="Example block-level help text here."
                 onChange={this.handleImage}
                 className="formtextarea"
               />
               <FormControl
                 type="date"
                 label="Date"
+                defaultValue={this.props.startDate}
                 min={this.props.startDate}
                 max={this.props.endDate}
                 onChange={this.pitstopDate}

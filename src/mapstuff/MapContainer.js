@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper, } from 'google-maps-react';
-import { relative } from 'path';
 
 //Code reproduced with minor changes from https://github.com/fullstackreact/google-maps-react (npm google-maps-react) in 
 //accordance with the MIT license 
