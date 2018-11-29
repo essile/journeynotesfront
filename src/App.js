@@ -8,18 +8,25 @@ import TripView from "./views/TripView";
 import { Col, Nav, Image, Button, Collapse, Well } from "react-bootstrap";
 import EditTripView from "./views/EditTripView";
 import logoutbutton from "./images/logoutbutton.png";
+import languagebutton from "./images/languagebutton.png";
 import menu from "./images/menu.png";
 import FinnishFlag from "./images/FinnishFlag.png";
 import UKflag from "./images/UKflag.png";
 import SwedishFlag from "./images/SwedishFlag.png";
 import i18n from "./i18n";
 import NotFound from "./views/NotFound";
+import { DeleteAccount } from "./ServiceClient";
 
 class App extends Component {
   constructor() {
     super();
     this.authService = new AuthService();
     this.state = { open: false }
+  }
+
+  AccountDelete=()=> {
+    DeleteAccount();
+    this.authService.logout();
   }
 
   renderFirstView() {
@@ -67,41 +74,47 @@ class App extends Component {
     
     return (
       <div>
-        <Nav>
+
+          <div className="titlestyle">
+            <h1>journey</h1>
+            <h1>notes</h1>
+          </div>
+        <Nav className="nav">
+          <Button bsStyle="warning" onClick={() => {
+                        if (window.confirm("Are you sure you want to delete your account?"))
+                          this.AccountDelete();
+                      }}>
+            Delete account
+          </Button>
           <Link to='/FirstView'>
             <Button className="button">
               <Image src={menu} className='menuicon' alt='Menu' responsive />
               Home
          </Button>
-
           </Link>
-          <ChangeLanguage />
-
           <Button className="button" onClick={() => this.authService.logout()}>
             <Image src={logoutbutton} alt='Log Out' className="menuicon" responsive />
             {/* {logoutbutton} */}
             Log Out
         </Button>
+        <div>
+          <Button className="button" onClick={() => this.setState({open:!this.state.open})}>
+            <Image src={languagebutton} alt='Language change' className="menuicon" responsive />
+            {/* {logoutbutton} */}
+            Language
+        </Button>
           <Collapse in={this.state.open}>
             <div>
-              <Collapse in={this.state.open}>
-                <div>
                   <Well>
-                    {/* <GoogleApiWrapper /> */}
+                   <ChangeLanguage />
                   </Well>
-                </div>
-              </Collapse>
             </div>
           </Collapse>
+          </div>
         </Nav>
-
 
         <div className="App">
           <Col xs={12} sm={10} md={8}>
-          <div className="titlestyle">
-            <h1>journey</h1>
-            <h1>notes</h1>
-          </div>
             <Switch>
               <Route exact path="/" render={() => this.renderFirstView()} />
               <Route path="/startSession" render={({ history }) => this.startSession(history)} />
@@ -111,10 +124,10 @@ class App extends Component {
               <Route path="/EditTripView/:tripId" component={EditTripView} />
               <Route component={NotFound} />
             </Switch>
-            {/* {logoutButton} */}
           </Col>
         </div>
       </div>
+    
     );
   }
 }

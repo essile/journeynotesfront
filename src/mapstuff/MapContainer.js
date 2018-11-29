@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper, } from 'google-maps-react';
+import { relative } from 'path';
 
 //Code reproduced with minor changes from https://github.com/fullstackreact/google-maps-react (npm google-maps-react) in 
 //accordance with the MIT license 
@@ -47,10 +48,11 @@ class MapContainer extends Component {
   render() {
     const trips = this.props.trips;
     const style = {
-      width: '70%',
-      height: '35%',
-      'marginLeft': '15%',
-      'marginRight': '10%'
+      width: '50vw',
+      height: '60vh',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      position: 'relative',
     }  
     return (
       <Map
@@ -60,7 +62,7 @@ class MapContainer extends Component {
         style={style}
         google={this.props.google}
         onClick={this.onMapClick}
-        zoom={1.5}
+        zoom={1.8}
         initialCenter={{ lat: 32.379189, lng: 4.899431 }}
         onReady={this.addMarker}
       >

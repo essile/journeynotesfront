@@ -99,4 +99,14 @@ export function EditTrip(trip) {
   });
 }
 
+export function DeleteAccount() {
+  const accessToken = sessionStorage.getItem("access_token");
+  const headers = { 'Authorization': `Bearer ${accessToken}`};
+  return Axios.delete(localhost + "/api/People/", { headers })
+  .then(response=>{
+      console.log("tili poistettu");
+      console.dir(response);
+  });
+}
+
 export default function() {}
