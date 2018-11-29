@@ -45,7 +45,7 @@
 }
 
 .menuicon {
-  height:5em;
+  width:4em;
 }
 .menu {
   background-color: #282c34;
@@ -67,5 +67,12 @@
   }
 }
 .titlestyle {
+  color: #4a344f;
   margin-bottom: 2em;
+  text-align: center;
+  font-size: 1.5em;
+}
+.nav {
+  margin-left: 2em;
+  margin-right: 2em;
 }
