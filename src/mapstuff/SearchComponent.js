@@ -87,7 +87,7 @@ class SearchComponent extends React.Component {
                 <div className="Demo__search-input-container">
                   <input
                     {...getInputProps({
-                      placeholder: 'Please give me a country',
+                      placeholder: 'Please share your destination',
                       className: 'Demo__search-input',
                     })}
                   />

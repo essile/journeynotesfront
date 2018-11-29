@@ -87,7 +87,7 @@ class PitStopSearchComponent extends React.Component {
                 <div className="Demo__search-input-container">
                   <input
                     {...getInputProps({
-                      placeholder: 'Where did you go',
+                      placeholder: 'Where did you go?',
                       className: 'Demo__search-input',
                     })}
                   />
