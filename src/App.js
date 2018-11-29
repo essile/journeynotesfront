@@ -14,10 +14,11 @@ import menu from "./images/menu.png";
 import FinnishFlag from "./images/FinnishFlag.png";
 import UKflag from "./images/UKflag.png";
 import SwedishFlag from "./images/SwedishFlag.png";
+import BrazilianFlag from "./images/BrazilianFlag.png";
 import i18n from "./i18n";
 import NotFound from "./views/NotFound";
 import { DeleteAccount } from "./ServiceClient";
-const warningMessageAccount = i18n.t("Delete account warning message");
+const warningMessageAccount = i18n.t('Delete account warning message');
 
 class App extends Component {
   constructor() {
@@ -108,7 +109,7 @@ class App extends Component {
           </Collapse>
           </div>
           <Button className="button" onClick={() => {
-                        if (window.confirm("Are you sure you want to delete your account?"))
+                        if (window.confirm(warningMessageAccount))
                           this.AccountDelete();
                       }}>
             <Image src={deleteaccount} className='menuicon' alt='Menu' responsive />
@@ -148,6 +149,7 @@ function ChangeLanguage() {
       <input type="image" onClick={() => changeLanguage('en')} src={UKflag} alt="en" />&nbsp;
       <input type="image" onClick={() => changeLanguage('fi')} src={FinnishFlag} alt="fi" />&nbsp;
       <input type="image" onClick={() => changeLanguage('se')} src={SwedishFlag} alt="se" />&nbsp;
+      <input type="image" onClick={() => changeLanguage('pt')} src={BrazilianFlag} alt="pt" />&nbsp;
       {/* <button onClick={() => changeLanguage('en')}>English</button> */}
       {/* <button onClick={() => changeLanguage('fi')}>Suomi</button> */}
     </div>
