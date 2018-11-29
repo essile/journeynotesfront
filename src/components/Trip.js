@@ -56,6 +56,15 @@ class Trip extends Component {
         <div key={tripPitstop.tripId}>
           <Jumbotron className="jumbo">
             <div>
+            <Image
+            src={
+              tripPitstop.mainPhotoSmallUrl === ""
+                ? "https://media.giphy.com/media/yv10uxsLG8BLcB7Gac/giphy.gif"
+                : photoUrl + tripPitstop.mainPhotoSmallUrl
+            }
+            alt="trip main"
+            responsive
+          />
               <h2>{tripPitstop.headline}</h2>
               <p>{tripPitstop.description}</p>
               <h3>
@@ -104,6 +113,7 @@ class Trip extends Component {
             return (
               <Jumbotron key={tripPitstop.id} className="jumbo">
                 <div>
+                  
                   <h3>{pitstop.title}</h3>
                   <p>{pitstop.note}</p>
                   <h5>{pitstop.pitstopDate.substring(0, 10)}</h5>
