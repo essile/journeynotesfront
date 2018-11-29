@@ -15,9 +15,11 @@
     "Delete": "Poista",
     "Delete trip warning message": "Haluatko varmasti poistaa tämän matkan ja kaikki sen etapit?",
     "Delete pitstop warning message": "Haluatko varmasti postaa tämän etapin?",
+    "Delete account warning message":"Haluatko varmasti poistaa tilisi? Tätä ei voi perua.",
     "Edit headline": "Muokkaa otsikkoa",
     "Edit description": "Muokkaa kuvausta",
     "Done": "Valmis",
     "Redirecting auth message": "Uudelleenohjataan autentikaatiopalveluun...",
-    "Starting message": "Ladataan..."
+    "Starting message": "Ladataan...",
+    "Pitstops headline":"Tässä ovat muistosi"
 }

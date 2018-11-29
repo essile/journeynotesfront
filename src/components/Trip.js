@@ -13,6 +13,7 @@ import i18n from "../i18n";
 const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
 const warningMessageTrip = i18n.t("Delete trip warning message");
 const warningMessagePitstop = i18n.t("Delete pitstop warning message");
+const headlinePitstops = i18n.t("Pitstops headline");
 
 class Trip extends Component {
   constructor(props) {
@@ -106,7 +107,7 @@ class Trip extends Component {
               </Nav>
             </div>
           </Jumbotron>
-          <h2>Here are your memories</h2>
+          <h2>{headlinePitstops}</h2>
           <Jumbotron key={tripPitstop.id} className="jumbo">
           {tripPitstop.pitstops.map(pitstop => {
             console.log(photoUrl + pitstop.photoMediumUrl);

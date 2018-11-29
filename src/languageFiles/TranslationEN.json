@@ -15,10 +15,12 @@
     "Delete": "Delete",
     "Delete trip warning message": "Are you sure you want to delete this trip and all its pitstops?",
     "Delete pitstop warning message": "Are you sure you want to delete this pitstop?",
+    "Delete account warning message": "Are you sure you want to delete your account? This can't be undone.",
     "Edit headline": "Edit headline",
     "Edit description": "Edit description",
     "Done": "Done",
     "Redirecting auth message": "Redirecting to the authentication service...",
     "Starting message": "Starting session...",
-    "Logout": "Logout"
+    "Logout": "Logout",
+    "Pitstops headline":"Here are your memories"
 }

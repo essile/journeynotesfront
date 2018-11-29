@@ -16,6 +16,7 @@ import SwedishFlag from "./images/SwedishFlag.png";
 import i18n from "./i18n";
 import NotFound from "./views/NotFound";
 import { DeleteAccount } from "./ServiceClient";
+const warningMessageAccount = i18n.t("Delete account warning message");
 
 class App extends Component {
   constructor() {
@@ -81,7 +82,7 @@ class App extends Component {
           </div>
         <Nav className="nav">
           <Button bsStyle="warning" onClick={() => {
-                        if (window.confirm("Are you sure you want to delete your account?"))
+                        if (window.confirm(warningMessageAccount))
                           this.AccountDelete();
                       }}>
             Delete account
