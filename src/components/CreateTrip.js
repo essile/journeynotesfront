@@ -116,6 +116,7 @@ class Trip extends Component {
                 />
                 <FormControl className='formtextarea'
                   type="date"
+                  defaultValue={this.state.startDate}
                   label={i18n.t('End date')}
                   onChange={this.endDate}
                 />
