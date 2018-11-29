@@ -47,3 +47,7 @@
     margin: 1em;
 }
 
+#map * {
+    overflow:visible;
+}
+
