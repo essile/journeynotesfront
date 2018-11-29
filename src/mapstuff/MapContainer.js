@@ -54,10 +54,10 @@ class MapContainer extends Component {
     })}
     console.log(trips.position);
     const style = {
-      width: '80%',
-      height: '40%',
-      'marginLeft': '8%',
-      'marginRight': ''
+      width: '70%',
+      height: '35%',
+      'marginLeft': '15%',
+      'marginRight': '10%'
     }  
     return (
       <Map
