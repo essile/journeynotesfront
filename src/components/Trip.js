@@ -56,23 +56,22 @@ class Trip extends Component {
         <div key={tripPitstop.tripId}>
           <Jumbotron className="jumbo">
             <div>
-            <Image
-            src={
-              tripPitstop.mainPhotoSmallUrl === ""
-                ? "https://media.giphy.com/media/yv10uxsLG8BLcB7Gac/giphy.gif"
-                : photoUrl + tripPitstop.mainPhotoSmallUrl
-            }
-            alt="trip main"
-            responsive
-          />
-              <h2>{tripPitstop.headline}</h2>
-              <p>{tripPitstop.description}</p>
+              <h1 className="tripHeadline">{tripPitstop.headline}</h1>
+              <h4>{tripPitstop.description}</h4>
               <h3>
                 {" "}
                 🛪 {tripPitstop.startDate.substring(0, 10)} /{" "}
                 {tripPitstop.endDate.substring(0, 10)}
               </h3>
-
+              <Image
+            src={
+              tripPitstop.mainPhotoUrl === ""
+                ? "https://media.giphy.com/media/yv10uxsLG8BLcB7Gac/giphy.gif"
+                : photoUrl + tripPitstop.mainPhotoUrl
+            }
+            alt="trip main"
+            responsive
+          />
               <Nav>
                 <NavItem
                   href={`/EditTripView/${this.props.match.params.tripId}`}
@@ -107,28 +106,30 @@ class Trip extends Component {
               </Nav>
             </div>
           </Jumbotron>
+          <h2>Here are your memories</h2>
+          <Jumbotron key={tripPitstop.id} className="jumbo">
           {tripPitstop.pitstops.map(pitstop => {
             console.log(photoUrl + pitstop.photoMediumUrl);
 
             return (
-              <Jumbotron key={tripPitstop.id} className="jumbo">
-                <div>
+                <div className="pitstopsOfTrip">
                   
                   <h3>{pitstop.title}</h3>
-                  <p>{pitstop.note}</p>
-                  <h5>{pitstop.pitstopDate.substring(0, 10)}</h5>
+                  
 
                   <div>
                     <Image
                       src={
-                        pitstop.photoMediumUrl === ""
+                        pitstop.photoSmallUrl === ""
                           ? "https://media.giphy.com/media/yv10uxsLG8BLcB7Gac/giphy.gif"
-                          : photoUrl + pitstop.photoMediumUrl
+                          : photoUrl + pitstop.photoSmallUrl
                       }
                       alt="trip main"
                       responsive
                     />
                   </div>
+                  <p>{pitstop.note}</p>
+                  <h5>{pitstop.pitstopDate.substring(0, 10)}</h5>
                   <Nav>
                     <NavItem
                       active
@@ -146,9 +147,10 @@ class Trip extends Component {
                     </NavItem>
                   </Nav>
                 </div>
-              </Jumbotron>
             );
           })}
+         
+          </Jumbotron>
         </div>
       ));
     return <div>{TripWithPitstops}</div>;
