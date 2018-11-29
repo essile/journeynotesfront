@@ -14,7 +14,7 @@ class TripList extends Component {
           <Image
             src={
               trip.mainPhotoSmallUrl === ""
-                ? "https://media.giphy.com/media/yv10uxsLG8BLcB7Gac/giphy.gif"
+                ? giffi
                 : photoUrl + trip.mainPhotoSmallUrl
             }
             alt="trip main"

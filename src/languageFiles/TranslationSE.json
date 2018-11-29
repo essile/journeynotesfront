@@ -1,6 +1,6 @@
 {
     "My past adventures": "Mina tidigare äventyr",
-    "Create a new pitstop": "Skapa en ny etapp",
+    "Create a new pitstop": "Skapa en ny etapp, tack",
     "Leave a note": "Beskriv din etapp",
     "Title": "Titel",
     "Give a headline": "Ge en rubrik",
@@ -24,5 +24,10 @@
     "Logout": "Logga ut",
     "Pitstops headline":"Här är dina minnen",
     "Trip map search":"Resmål",
-    "Pitstop map search":"Var var du?"
+    "Pitstop map search":"Var var du?",
+    "Account": "konto",
+    "Language": "Språk",
+    "Create a new Trip": "Skapa en ny resa",
+    "Home": "Hem",
+    "LogoutFIOnly": ""
 }

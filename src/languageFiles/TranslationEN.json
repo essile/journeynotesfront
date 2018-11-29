@@ -24,5 +24,10 @@
     "Logout": "Logout",
     "Pitstops headline": "Here are your memories",
     "Trip map search": "Please share your destination",
-    "Pitstop map search": "Where did you go?"
+    "Pitstop map search": "Where did you go?",
+    "Account": "account",
+    "Language": "Language",
+    "Create a new Trip": "Create a new Trip",
+    "Home": "Home",
+    "LogoutFIOnly": "" 
 }
