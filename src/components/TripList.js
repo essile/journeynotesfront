@@ -33,7 +33,7 @@ class TripList extends Component {
       <div>
         <div>
           <Grid>
-            <Row className="show-grid">
+            <Row>
               {allTrips.map(trip => (
                 <Col xs={12} sm={10} md={8} lg={6}>
                   {trip}
