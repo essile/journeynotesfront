@@ -14,14 +14,14 @@ class FirstView extends Component {
   }
 
   componentDidMount = () => {
-   // this.interval=setInterval(( )=> {
+    this.interval=setInterval(( )=> {
       GetAllTrips(response => {
       var trips = response;
 
       this.setState({ trips: trips });
       console.log(this.state.trips);
     });
- // }, 2000)
+  }, 2000)
   };
 
   componentWillUnmount = () => {
