@@ -14,7 +14,7 @@ class FirstView extends Component {
   }
 
   componentDidMount = () => {
-    this.interval=setInterval(( )=> {
+   this.interval=setInterval(( )=> {
       GetAllTrips(response => {
       var trips = response;
 
@@ -52,10 +52,10 @@ class FirstView extends Component {
           <TripList trips={this.state.trips} />
           </div>
           </Jumbotron>
-        <div>
-        
+        <Jumbotron className="map">     
            <GoogleApiWrapper trips={this.state.trips}/>
-        </div>
+        </Jumbotron>
+
       </div>
     );
   }
