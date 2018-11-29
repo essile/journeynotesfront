@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Image, Jumbotron, Grid, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../cssstyles/View.css";
+import giffi from "../images/giffi.gif";
 
 const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
 
@@ -18,7 +19,8 @@ class TripList extends Component {
             }
             alt="trip main"
             responsive
-          />
+          /> 
+
           <h2>{trip.headline}</h2>
           <p>{trip.description}</p>
           <h4>
