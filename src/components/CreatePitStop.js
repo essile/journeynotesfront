@@ -21,6 +21,8 @@ class CreatePitStop extends Component {
   }
 
   componentDidMount = () => {
+    console.log("propsit")
+    console.log(this.props);
     let tripId;
     if (this.props.match === undefined) {
       tripId = this.props.tripId;
@@ -104,6 +106,7 @@ class CreatePitStop extends Component {
             <FormControl
               type="date"
               label="Date"
+              // min={}
               onChange={this.pitstopDate}
               className="formtextarea"
             />
