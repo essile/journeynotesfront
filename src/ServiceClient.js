@@ -1,5 +1,5 @@
 import Axios from "axios";
-var localhost = "https://localhost:44316";
+var localhost = "https://journeynotesapi.azurewebsites.net";
 
 export function GetAllTrips(callback) {
   const accessToken = sessionStorage.getItem("access_token");
