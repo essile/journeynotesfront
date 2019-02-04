@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Image, Jumbotron, Grid, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../cssstyles/View.css";
-import giffi from "../images/giffi.gif";
+import loadingcloud from "../images/loadingcloud.gif";
 
 const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
 
@@ -14,7 +14,7 @@ class TripList extends Component {
           <Image
             src={
               trip.mainPhotoSmallUrl === ""
-                ? giffi
+                ? loadingcloud
                 : photoUrl + trip.mainPhotoSmallUrl
             }
             alt="trip main"
