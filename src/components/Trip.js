@@ -9,7 +9,7 @@ import deletebutton from "../images/deletebutton.png";
 import editbutton from "../images/editbutton.png";
 import "../cssstyles/View.css";
 import i18n from "../i18n";
-import giffi from "../images/giffi.gif";
+import loadingcloud from "../images/loadingcloud.gif";
 
 const photoUrl = "https://journeynotes.blob.core.windows.net/photos/";
 const warningMessageTrip = i18n.t("Delete trip warning message");
@@ -99,7 +99,7 @@ class Trip extends Component {
                 <Image
                   src={
                     tripPitstop.mainPhotoUrl === ""
-                      ? giffi
+                      ? loadingcloud
                       : photoUrl + tripPitstop.mainPhotoUrl
                   }
                   alt="trip main"
@@ -150,7 +150,7 @@ class Trip extends Component {
                       <Image
                         src={
                           pitstop.photoSmallUrl === ""
-                            ? giffi
+                            ? loadingcloud
                             : photoUrl + pitstop.photoSmallUrl
                         }
                         alt="trip main"
